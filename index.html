@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Irina Mumrikova, Product & UX Design</title>
+<meta name="description" content="Portfolio of Irina Mumrikova, product and UX designer in Cologne.">
+<style>
+:root{--ink:#141414;--mute:#5c5c5c;--line:#dcdcdc;--acc:#2f4bd8;--bg:#fbfbf9;--paper:#ffffff;--soft:#f1f1ee;
+--sans:"Helvetica Neue",Helvetica,Arial,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font:17px/1.5 var(--sans);color:var(--ink);background:var(--bg);font-kerning:normal}
+a{color:var(--acc)}
+img{max-width:100%;height:auto;display:block}
+.eyebrow{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);font-weight:600}
+.mute{color:var(--mute)}.small{font-size:14px}
+.pcover{display:none}
+.skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;z-index:999;background:#fff;padding:8px}
+.top{position:fixed;inset:0 0 auto;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 28px;gap:16px}
+.name{font-weight:600;font-size:17px;text-decoration:none;color:var(--ink);letter-spacing:-.01em}
+.name span{color:var(--mute);font-weight:400}
+.navl{display:flex;gap:22px;flex-wrap:wrap}
+.navl a{color:var(--ink);text-decoration:none;font-size:15px}
+.navl a:hover{color:var(--acc)}
+#stage{position:relative;height:100vh;height:100svh;min-height:560px;overflow:hidden;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.intro{position:absolute;left:28px;right:28px;top:96px;max-width:780px}
+.intro h1{font-size:clamp(34px,5.2vw,68px);line-height:1.02;letter-spacing:-.025em;margin:0 0 18px;font-weight:600}
+.intro p{font-size:clamp(16px,1.4vw,19px);color:#333;max-width:640px;margin:0}
+#thread{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#thread path{fill:none;stroke:var(--ink);stroke-width:1.2}
+.bead{position:absolute;left:0;top:0;width:var(--d);height:var(--d);margin:calc(var(--d)/-2) 0 0 calc(var(--d)/-2);
+border-radius:50%;border:0;padding:0;cursor:pointer;background:var(--soft);will-change:transform;
+box-shadow:0 1px 0 rgba(0,0,0,.08),0 14px 30px -16px rgba(0,0,0,.45);outline-offset:6px;font:inherit;color:inherit}
+.bead .face{position:absolute;inset:0;border-radius:50%;overflow:hidden;background-size:cover;background-position:center}
+.bead .face.type{display:grid;place-content:center;text-align:center;background:var(--acc);color:#fff}
+.bead .face.type b{font-size:calc(var(--d)*.3);line-height:.9;letter-spacing:-.04em}
+.bead .face.type i{font-style:normal;font-size:calc(var(--d)*.075);letter-spacing:.08em;text-transform:uppercase;margin-top:6px}
+.bead .hole{position:absolute;left:50%;top:50%;width:10px;height:10px;margin:-5px;border-radius:50%;background:var(--bg);
+box-shadow:inset 0 0 0 1.2px var(--ink);opacity:.9}
+.bead .lab{position:absolute;left:50%;top:calc(100% + 14px);transform:translateX(-50%);width:max-content;max-width:240px;
+text-align:center;font-size:14px;line-height:1.3;pointer-events:none}
+.bead .lab b{display:block;font-size:16px}
+.bead .lab span{color:var(--mute)}
+.bead .face{pointer-events:none}
+.hint{position:absolute;left:28px;bottom:22px;font-size:13px;color:var(--mute);letter-spacing:.04em}
+.hint a{color:var(--mute)}
+.list{padding:72px 28px 40px;max-width:1240px;margin:0 auto}
+.list h2,.about h2{font-size:30px;letter-spacing:-.015em;margin:0 0 24px;font-weight:600}
+.rows{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.rows a{display:grid;grid-template-columns:56px 1.1fr 1.6fr auto;gap:18px;align-items:baseline;padding:20px 0;
+border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.rows a:hover b{color:var(--acc)}
+.rows .nr{color:var(--acc);font-weight:600;font-size:14px}
+.rows b{font-size:21px;font-weight:600;letter-spacing:-.01em}
+.rows .ln{color:#333}.rows .k{color:var(--mute);font-size:14px}
+.about{padding:40px 28px 80px;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.about p{margin:0 0 12px;max-width:560px}
+footer{padding:28px;border-top:1px solid var(--line);font-size:14px;color:var(--mute);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.case{position:fixed;inset:0;z-index:80;background:var(--paper);overflow:auto;overscroll-behavior:contain;
+visibility:hidden;clip-path:circle(0 at 50% 50%)}
+.case.on{visibility:visible}
+.case .close{position:fixed;top:16px;right:20px;z-index:90;width:46px;height:46px;border-radius:50%;border:1px solid var(--ink);
+background:var(--paper);font-size:22px;line-height:1;cursor:pointer;color:var(--ink)}
+.case .bar{position:sticky;top:0;z-index:85;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+padding:14px 84px 14px 28px;font-size:14px;display:flex;gap:14px;align-items:baseline;border-bottom:1px solid var(--line)}
+.case .bar b{font-weight:600}
+.case article{max-width:1180px;margin:0 auto;padding:40px 28px 100px}
+.casehead h1{font-size:clamp(34px,5vw,64px);line-height:1.02;letter-spacing:-.025em;margin:10px 0 18px;font-weight:600;max-width:950px;outline:0}
+.lead{font-size:clamp(18px,1.6vw,21px);line-height:1.45;color:#262626;max-width:820px}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0 28px;margin:28px 0;border-top:1px solid var(--ink)}
+.meta div{padding:12px 0;border-bottom:1px solid var(--line)}
+.meta dt{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.meta dd{margin:4px 0 0;font-size:15px}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin:8px 0 28px}
+.nums b{display:block;font-size:clamp(44px,6vw,80px);line-height:1;letter-spacing:-.04em;font-weight:600}
+.nums span{color:var(--mute);font-size:15px}
+.cta{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin:0 0 28px}
+.btn{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;border:0;border-radius:99px;padding:12px 22px;
+font:600 15px var(--sans);cursor:pointer}
+.btn:hover{background:var(--acc)}
+figure{margin:0}
+figure img{border:1px solid var(--line);border-radius:4px;background:#fff}
+figcaption{font-size:14px;color:var(--mute);margin-top:8px;line-height:1.4}
+figure.wide{margin:28px 0}
+figure.phone img{border:0;background:none;max-height:640px;width:auto;margin:0 auto}
+.ch{margin-top:88px}
+.chhead{border-top:1px solid var(--ink);padding-top:14px;margin-bottom:26px;display:grid;grid-template-columns:48px 1fr;column-gap:12px}
+.chnr{grid-row:span 2;font-size:28px;font-weight:600;color:var(--acc);line-height:1}
+.ch h2{font-size:clamp(26px,3vw,38px);line-height:1.1;letter-spacing:-.02em;margin:6px 0 0;font-weight:600;max-width:900px}
+.ch p{max-width:820px}
+h3.sub{font-size:22px;letter-spacing:-.01em;margin:48px 0 18px;font-weight:600;max-width:820px}
+.cards{display:grid;gap:22px;margin:26px 0}
+.c2{grid-template-columns:repeat(2,minmax(0,1fr))}.c3{grid-template-columns:repeat(3,minmax(0,1fr))}.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--soft);border-radius:4px;padding:18px}
+.card h4{font-size:18px;line-height:1.25;margin:6px 0 8px;font-weight:600}
+.card p{margin:0;font-size:15px;line-height:1.45}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;align-items:start;margin:26px 0}
+.two.narrowimg{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)}
+.four{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin:26px 0}
+.four img{aspect-ratio:4/5;object-fit:cover;object-position:top}
+.notes{counter-reset:n;list-style:none;padding:0;margin:0}
+.notes li{counter-increment:n;position:relative;padding:0 0 12px 40px;font-size:15px;line-height:1.45}
+.notes li::before{content:counter(n);position:absolute;left:0;top:1px;width:24px;height:24px;background:var(--ink);color:#fff;
+font-size:12px;font-weight:600;display:grid;place-items:center}
+.notes b{font-weight:600}
+.ann{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:32px;align-items:start;margin:34px 0 54px}
+blockquote{margin:36px 0;padding:0 0 0 22px;border-left:3px solid var(--acc);font-size:clamp(20px,2vw,26px);line-height:1.35;max-width:880px}
+.stages{list-style:none;padding:0;margin:24px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+.stages li{font-size:13px;border:1px solid var(--ink);border-radius:99px;padding:4px 12px}
+.stages li:nth-child(n+7){border-style:dashed;color:var(--mute);border-color:var(--mute)}
+.flow{list-style:none;padding:0;margin:24px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
+.flow li{border:1px solid var(--ink);border-radius:4px;padding:10px;font-size:13.5px;line-height:1.35;background:#fff}
+.flow li b{display:block;font-size:14px;margin-bottom:2px}
+.flow li.gate{border-color:var(--acc);background:#eef1fd}
+.flow.small li{font-size:13px}
+.personas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.persona{background:var(--soft);border-radius:4px;padding:18px;display:flex;flex-direction:column;font-size:15px}
+.persona h4{font-size:19px;margin:6px 0 4px}
+.persona p{margin:0 0 10px}
+.persona dl{margin:0 0 12px}.persona dt{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-top:8px}
+.persona dd{margin:2px 0 0}
+.persona .so{margin-top:auto;border-top:1px solid var(--line);padding-top:10px}
+.compare{margin:26px 0}
+.cmp-stage{position:relative;--x:50%}
+.cmp-stage .hi{position:absolute;inset:0;clip-path:inset(0 0 0 var(--x))}
+.cmp-stage figcaption{position:absolute;top:10px;background:rgba(255,255,255,.9);padding:2px 8px;margin:0;border-radius:2px}
+.cmp-stage .lo figcaption{left:10px}.cmp-stage .hi figcaption{right:10px}
+.cmp-stage::after{content:"";position:absolute;top:0;bottom:0;left:var(--x);width:2px;background:var(--acc);pointer-events:none}
+.compare input{width:100%;margin:12px 0 0;accent-color:var(--acc)}
+.live{margin:40px 0 0;border:1px solid var(--ink);border-radius:6px;overflow:hidden;background:var(--soft)}
+.livehead{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line);background:#fff;font-size:14px}
+.live iframe{display:block;width:100%;height:min(80vh,820px);border:0;background:#fff}
+.live iframe:not([src]){height:0}
+.loadlive{margin:28px auto;display:block}
+.live.loaded .loadlive{display:none}
+@media (max-width:900px){
+.two,.two.narrowimg,.ann{grid-template-columns:1fr}.c3,.c4,.personas{grid-template-columns:repeat(2,minmax(0,1fr))}
+.four{grid-template-columns:repeat(2,minmax(0,1fr))}.about{grid-template-columns:1fr}
+.rows a{grid-template-columns:40px 1fr;row-gap:4px}.rows .ln,.rows .k{grid-column:2}
+.navl{display:none}}
+@media (max-width:699px){.bead .lab{opacity:0;transition:opacity .25s}.bead.near .lab{opacity:1}.hint .d{display:none}}
+@media (min-width:700px){.hint .m{display:none}}
+@media (max-width:560px){
+body{font-size:16px}.top,.list,.about,.case article{padding-left:16px;padding-right:16px}.intro{left:16px;right:16px;top:80px}
+.c2,.c3,.c4,.personas{grid-template-columns:1fr}.nums{grid-template-columns:1fr;gap:12px}.hint{left:16px}
+.case .bar{padding-left:16px}}
+@media print{
+@page{size:A4 landscape;margin:11mm 13mm}
+body{background:#fff;font-size:9.5pt;line-height:1.4}
+.top,#stage,.list,.close,.bar,.hint,.loadlive,.live iframe,.compare input,.compare p,.skip,footer{display:none!important}
+.pcover{display:flex!important;flex-direction:column;justify-content:space-between;height:186mm;break-after:page}
+.pcover h1{font-size:30pt;line-height:1.05;letter-spacing:-.02em;margin:6mm 0 4mm;max-width:210mm;font-weight:600}
+.pcover .rows a{padding:3mm 0;grid-template-columns:12mm 55mm 1fr 60mm}
+.pcover .rows b{font-size:13pt}
+.case{position:static;visibility:visible!important;clip-path:none!important;overflow:visible;break-before:page;inset:auto}
+.case article{padding:0;max-width:none}
+.casehead h1{font-size:28pt;margin:2mm 0 4mm}.lead{font-size:11.5pt;max-width:220mm}
+.meta{margin:5mm 0}.nums{margin:2mm 0 4mm}.nums b{font-size:34pt}
+.ch{margin-top:8mm}.ch h2{font-size:17pt}.chhead{margin-bottom:4mm}
+.chhead,.card,.persona,figure,.notes li,.flow li,blockquote{break-inside:avoid}
+.chhead{break-after:avoid}
+.cards{margin:4mm 0;gap:4mm}.card{padding:3mm}.card h4{font-size:11pt}.card p,.notes li,.persona{font-size:9pt}
+.two,.two.narrowimg{display:grid!important;grid-template-columns:1fr 1fr!important;gap:7mm;margin:4mm 0}
+.ann{display:grid!important;grid-template-columns:1.35fr 1fr!important;gap:7mm;margin:4mm 0 7mm;break-inside:avoid}
+.c3{grid-template-columns:repeat(3,1fr)!important}.c4{grid-template-columns:repeat(4,1fr)!important}
+.personas{grid-template-columns:repeat(4,1fr)!important;gap:4mm}.persona{padding:3mm}
+.four{grid-template-columns:repeat(4,1fr)!important;gap:4mm;margin:4mm 0}
+img{max-height:118mm;width:auto;max-width:100%;margin:0 auto}
+.two img,.ann img{max-height:150mm}
+.four img{max-height:70mm;width:100%}
+figure.wide img{max-height:105mm}
+figure.phone img{max-height:140mm}
+figcaption{font-size:8pt;margin-top:1.5mm}
+.cmp-stage{display:grid!important;grid-template-columns:1fr 1fr;gap:6mm}
+.cmp-stage .hi{position:static;clip-path:none}.cmp-stage::after{display:none}
+.cmp-stage figcaption{position:static;background:none;padding:0}
+.cmp-stage img{max-height:95mm}
+.live{border:0;background:none;margin:4mm 0 0}.livehead{border:0;padding:0}
+.live .livehead a::after{content:" " attr(href)}
+.about{display:grid!important;grid-template-columns:1fr 1fr;break-before:page;padding:0}
+blockquote{font-size:14pt;margin:5mm 0}
+a{color:var(--ink);text-decoration:none}
+}
+</style></head>
+<body>
+<a class="skip" href="#cases">Skip to the list of cases</a>
+<header class="top"><a class="name" href="./">Irina Mumrikova <span>Product &amp; UX Design</span></a>
+<nav class="navl" aria-label="Cases"><a href="#workspace" data-open="workspace">Workspace</a><a href="#research" data-open="research">53 applications</a><a href="#transpo" data-open="transpo">Transpo</a><a href="#data-pages" data-open="data-pages">Data pages</a><a href="#about">About</a></nav></header>
+<main>
+<section id="stage" aria-label="Cases on a thread">
+<div class="intro"><h1>I design products where the rules are strict and the users are busy.</h1>
+<p>Research first, then structure, then screens. AI agents do the heavy lifting in between, and I check every result.</p></div>
+<svg id="thread" aria-hidden="true"><path d=""/></svg>
+<button class="bead" data-id="workspace" aria-label="Open case 01: Workspace"><span class="face" style="background-image:url(img/bead-workspace.webp)"></span><span class="hole"></span><span class="lab"><b>Workspace</b><span>A workspace for deal managers on top of an internal console</span></span></button><button class="bead" data-id="research" aria-label="Open case 02: 53 applications"><span class="face type"><b>53</b><i>applications</i></span><span class="hole"></span><span class="lab"><b>53 applications</b><span>From a pain map to four proto-personas</span></span></button><button class="bead" data-id="transpo" aria-label="Open case 03: Transpo"><span class="face" style="background-image:url(img/bead-transpo.webp)"></span><span class="hole"></span><span class="lab"><b>Transpo</b><span>A driver app for cash-paid car rental in Abidjan</span></span></button><button class="bead" data-id="data-pages" aria-label="Open case 04: Data pages"><span class="face" style="background-image:url(img/bead-ef.webp)"></span><span class="hole"></span><span class="lab"><b>Data pages</b><span>An archive and exhibition pages generated from tables</span></span></button>
+<div class="hint"><span class="d">Pull a bead to open a case</span><span class="m">Swipe the thread, tap a bead</span>, or <a href="#cases">see the list ↓</a></div>
+</section>
+<section class="list" id="cases"><h2>Cases</h2><ol class="rows"><li><a href="#workspace" data-open="workspace"><span class="nr">01</span><b>Workspace</b><span class="ln">A workspace for deal managers on top of an internal console</span><span class="k">B2B fintech, internal tool, 2026 →</span></a></li><li><a href="#research" data-open="research"><span class="nr">02</span><b>53 applications</b><span class="ln">From a pain map to four proto-personas</span><span class="k">UX research, 2026 →</span></a></li><li><a href="#transpo" data-open="transpo"><span class="nr">03</span><b>Transpo</b><span class="ln">A driver app for cash-paid car rental in Abidjan</span><span class="k">Mobility start-up, 2026 →</span></a></li><li><a href="#data-pages" data-open="data-pages"><span class="nr">04</span><b>Data pages</b><span class="ln">An archive and exhibition pages generated from tables</span><span class="k">Artist-run platform, since 2016 →</span></a></li></ol></section>
+
+</main>
+<section class="pcover" aria-hidden="true"><div><span class="eyebrow">Portfolio, Product &amp; UX Design</span><h1>Irina Mumrikova</h1><p class="lead">I design products where the rules are strict and the users are busy. Research first, then structure, then screens. AI agents do the heavy lifting in between, and I check every result.</p></div><ol class="rows"><li><a href="#workspace" data-open="workspace"><span class="nr">01</span><b>Workspace</b><span class="ln">A workspace for deal managers on top of an internal console</span><span class="k">B2B fintech, internal tool, 2026 →</span></a></li><li><a href="#research" data-open="research"><span class="nr">02</span><b>53 applications</b><span class="ln">From a pain map to four proto-personas</span><span class="k">UX research, 2026 →</span></a></li><li><a href="#transpo" data-open="transpo"><span class="nr">03</span><b>Transpo</b><span class="ln">A driver app for cash-paid car rental in Abidjan</span><span class="k">Mobility start-up, 2026 →</span></a></li><li><a href="#data-pages" data-open="data-pages"><span class="nr">04</span><b>Data pages</b><span class="ln">An archive and exhibition pages generated from tables</span><span class="k">Artist-run platform, since 2016 →</span></a></li></ol><p class="mute small">All client, company and deal data in the cases are fictional.</p></section>
+<div class="case" id="case-workspace" role="dialog" aria-modal="true" aria-label="Workspace"><button class="close" type="button" aria-label="Close case">×</button><div class="bar"><b>01</b><span>Workspace</span><span class="mute">B2B fintech, internal tool, 2026</span></div><article><header class="casehead">
+<span class="eyebrow">Case study, B2B fintech, internal tool</span>
+<h1 tabindex="-1">Workspace</h1>
+<p class="lead">A workspace for deal managers, built on top of a company's internal console. The console holds every deal, document and payment. The workspace shows the manager only what needs them today, and one action for each problem.</p>
+<dl class="meta"><div><dt>Company</dt><dd>Private capital company, Dubai. Funds deals against UAE property</dd></div><div><dt>My role</dt><dd>Product &amp; UX Designer: research, flows, architecture, prototypes, UI</dd></div><div><dt>Worked with</dt><dd>CEO as product owner</dd></div><div><dt>Tools</dt><dd>Miro, FigJam, Figma, AI-assisted prototyping in code</dd></div><div><dt>Result</dt><dd>UX path, interactive prototype, first visual direction</dd></div></dl>
+<div class="nums"><div><b>141</b><span>days the first deal took</span></div>
+<div><b>68</b><span>days the ideal process needs</span></div>
+<div><b>+26</b><span>days lost in KYC alone</span></div></div>
+<p class="cta"><a class="btn" href="https://iramum.github.io/pm-console-prototype/" target="_blank" rel="noopener">Open the interactive prototype →</a>
+<span class="mute">Runs in the browser, no install. All client, company and deal data are fictional.</span></p>
+<figure class="wide"><img src="img/ws-cover.webp" width="1800" height="1725" loading="lazy" decoding="async" alt="Home of the workspace: the manager&#x27;s day, pinned deals, notes and one board"><figcaption>Home of the workspace: the manager's day, pinned deals, notes and one board</figcaption></figure>
+</header><section class="ch"><div class="chhead"><span class="chnr">1</span><span class="eyebrow">The task</span><h2>One deal, nine stages, four parties</h2></div><p>Each deal runs through a special-purpose company, an SPV. The manager aligns terms with the client, registers the SPV, passes KYC with an external corporate service provider (CSP), splits shares, signs contracts, registers the purchase, and then follows the monthly fee until the exit.</p><p>Four parties hand work to each other the whole time: the manager, the client, the CSP and the land registry. One missing document blocks the next stage. The company's console stored all of it, but it was built for the CEO: every field, every status, for every role. A manager had to dig for what to do next.</p><div class="cards c3"><div class="card"><span class="eyebrow">The brief</span><h4>Design the place the deal manager opens every morning</h4><p>One place that says what needs the manager today, where every deal stands, and whose move it is. The console stays the source of data. The workspace is the manager's view of it.</p></div><div class="card"><span class="eyebrow">Scope of this case</span><h4>Home, deal portfolio, deal room, documents</h4><p>Designed in depth for stages 01 to 05, from a lead that passed Screening to signed contracts. Leads and Payments are reserved in the menu and were not designed.</p></div><div class="card"><span class="eyebrow">Honest status</span><h4>A design proposal</h4><p>An interactive prototype and a first visual direction. The console was built in parallel, and the two were not merged.</p></div></div><ol class="stages"><li>Leads</li><li>01 Client Alignment</li><li>02 Set up SPV</li><li>03 KYC</li><li>04 Split Shares</li><li>05 Contracts</li><li>06 Buying</li><li>07 After Buying</li><li>08 Payments</li><li>09 Exit</li></ol></section><section class="ch"><div class="chhead"><span class="chnr">2</span><span class="eyebrow">The problem</span><h2>A spreadsheet of events, a board drawn after the fact</h2></div><div class="two"><figure><img src="img/ws-excel.webp" width="1264" height="580" loading="lazy" decoding="async" alt="Before: one row per deal. The status was a sentence, the colour whatever the last person picked. Reconstruction, names fictional."><figcaption>Before: one row per deal. The status was a sentence, the colour whatever the last person picked. Reconstruction, names fictional.</figcaption></figure><figure><img src="img/ws-miro.webp" width="1264" height="662" loading="lazy" decoding="async" alt="Then: on a Miro board the team replayed the first deal day by day against the ideal: 141 days against about 68. KYC alone took 47 days instead of 21. Reconstruction."><figcaption>Then: on a Miro board the team replayed the first deal day by day against the ideal: 141 days against about 68. KYC alone took 47 days instead of 21. Reconstruction.</figcaption></figure></div><h3 class="sub">What research showed: the delay was never in the work. It was in the waiting.</h3><div class="two"><figure><img src="img/ws-problem.webp" width="1264" height="587" loading="lazy" decoding="async" alt="The manager&#x27;s deal card in the console, redrawn in grey: one card for every role, five tabs, one job."><figcaption>The manager's deal card in the console, redrawn in grey: one card for every role, five tabs, one job.</figcaption></figure><div><p>I went through every event of the first deal with the CEO and tagged each one by who held the ball.</p><ol class="notes"><li><b>«Where is it stuck?» had no answer. </b>Status lived in people's heads, history on a board, documents in email.</li><li><b>Nobody owns the wait. </b>Four requests from the CSP in a row. Each restarted the clock, nobody saw the total.</li><li><b>Stages overlap. </b>KYC can start while the SPV is still being registered. A strict tracker hides it.</li><li><b>The manager does not need the money side. </b>Margins and capital providers are for the CEO and the CFO. The manager acts on documents, people and dates.</li></ol></div></div><blockquote>How might we show the manager, every morning, what is burning, where, and what to do now, without the rest of the console?</blockquote></section><section class="ch"><div class="chhead"><span class="chnr">3</span><span class="eyebrow">Service and architecture</span><h2>The console keeps the data. The workspace shows the manager's part.</h2></div><figure class="wide"><img src="img/ws-blueprint.webp" width="2000" height="1024" loading="lazy" decoding="async" alt="Service blueprint of one deal, from the first application to the exit. The client sees only what sits above the line of visibility. Black squares: the four places where days were lost."><figcaption>Service blueprint of one deal, from the first application to the exit. The client sees only what sits above the line of visibility. Black squares: the four places where days were lost.</figcaption></figure><div class="cards c3"><div class="card"><span class="eyebrow">Lead to deal</span><h4>Can we work with this case?</h4><p>Ends with «Start the deal».</p></div><div class="card"><span class="eyebrow">The deal, 01 to 07</span><h4>On what terms, and how?</h4><p>Ends when the capital is deployed and the property sits in the SPV.</p></div><div class="card"><span class="eyebrow">Under management</span><h4>08 and 09</h4><p>Monthly fees, the yearly SPV renewal, the exit.</p></div></div><figure class="wide"><img src="img/ws-console.webp" width="2000" height="1174" loading="lazy" decoding="async" alt="One console, a workspace for every role. The deal manager&#x27;s workspace is the first one: the console keeps the data and decides who is responsible, each workspace shows one role its part and sends every action back."><figcaption>One console, a workspace for every role. The deal manager's workspace is the first one: the console keeps the data and decides who is responsible, each workspace shows one role its part and sends every action back.</figcaption></figure></section><section class="ch"><div class="chhead"><span class="chnr">4</span><span class="eyebrow">The path</span><h2>Every path from lead to exit, and the decisions it forced</h2></div><div class="two narrowimg"><figure><img src="img/ws-flow.webp" width="1400" height="1981" loading="lazy" decoding="async" alt="The manager&#x27;s path, compact version"><figcaption>The manager's path, compact version</figcaption></figure><div><ol class="notes"><li><b>One exit from Leads. </b>Leads answer «can we work with this case?», the deal answers «on what terms?». Three rounds: an NDA did not draw the line, documents did not, the question did.</li><li><b>The real order of 01. </b>The KYC list was a missing step. Sending it in 01 lets the 21 days of KYC start sooner.</li><li><b>Whose move. </b>Every open item has an owner: you, the client, the CSP, or the CEO and the CFO. One request for everything missing, reminders on day 1, 4 and 7.</li><li><b>Two views, one record. </b>The CEO thinks in statuses, the manager in steps. The console's statuses stay as quiet tags under the manager's steps.</li><li><b>Hand over, do not decide. </b>After the contracts the manager hands the deal over. The CEO allocates the capital.</li><li><b>Two kinds of close. </b>A lead closes as Declined or Void with a reason. A deal closes at any stage with the manager's own words.</li></ol></div></div></section><section class="ch"><div class="chhead"><span class="chnr">5</span><span class="eyebrow">Iterations</span><h2>From one deal to a whole working day</h2></div><p>Every version was built in code, so the CEO clicked through real stage data in each review. Versions 1 to 5 tried to show one deal better: document lists, step cards, a chain, thin rows, a kanban. 6 and 7 asked what the manager looks at first. 8 and 9 grew the list into a workspace.</p><div class="four"><figure><img src="img/ws-v6.webp" width="1200" height="1054" loading="lazy" decoding="async" alt="v6 Deals × stages. Heavy"><figcaption>v6 Deals × stages. Heavy</figcaption></figure><figure><img src="img/ws-v7.webp" width="1200" height="833" loading="lazy" decoding="async" alt="v7 A list that says what to do"><figcaption>v7 A list that says what to do</figcaption></figure><figure><img src="img/ws-v8.webp" width="1200" height="1417" loading="lazy" decoding="async" alt="v8 Menu and money on top"><figcaption>v8 Menu and money on top</figcaption></figure><figure><img src="img/ws-v9.webp" width="1200" height="1250" loading="lazy" decoding="async" alt="v9 Home plans the day"><figcaption>v9 Home plans the day</figcaption></figure></div><div class="cards c4"><div class="card"><span class="eyebrow">Kept from v5</span><h4>Days against the ideal</h4><p>A delay is a number, not a feeling.</p></div><div class="card"><span class="eyebrow">Kept from v6</span><h4>Whose move</h4><p>The next action and its owner on every row.</p></div><div class="card"><span class="eyebrow">Four tries, one kept</span><h4>Where «urgent today» lives</h4><p>Filter cards, groups in the table, highlighted rows, small counters: rejected. A «Today» block with three cards: kept.</p></div><div class="card"><span class="eyebrow">A rule kept everywhere</span><h4>→ opens, buttons act</h4><p>A whole row with an arrow opens a deal. Text buttons only for actions.</p></div></div><h3 class="sub">Wireframe first. The structure was settled in grey, then the visual came on top.</h3><div class="compare" data-compare><div class="cmp-stage"><figure class="lo"><img src="img/ws-home-lofi.webp" width="1400" height="1458" loading="lazy" decoding="async" alt="Lo-fi, Home"><figcaption>Lo-fi, Home</figcaption></figure><figure class="hi"><img src="img/ws-home.webp" width="1400" height="1458" loading="lazy" decoding="async" alt="Hi-fi, Home"><figcaption>Hi-fi, Home</figcaption></figure></div><input type="range" min="0" max="100" value="50" aria-label="Slide between wireframe and final design"><p class="mute small">Drag: both views are the same code. The visual is one stylesheet on top.</p></div></section><section class="ch"><div class="chhead"><span class="chnr">6</span><span class="eyebrow">Final design</span><h2>Home, deal portfolio, deal room</h2></div><div class="ann"><figure><img src="img/ws-home-ann.webp" width="1800" height="1875" loading="lazy" decoding="async" alt="Home: the day starts here, not in the list"><figcaption>Home: the day starts here, not in the list</figcaption></figure><ol class="notes"><li><b>A tile per section. </b>Payments and Leads are reserved, dashed.</li><li><b>Plan your day. </b>Filled by the system: what is late, silent, new to check or due today.</li><li><b>Today or Later. </b>The only choice the manager makes here.</li><li><b>Pinned deals. </b>Deals to keep an eye on.</li><li><b>My notes. </b>Not tasks. A note can become one with «Make a task».</li><li><b>One board. </b>To do, Doing, Done. Work done in a deal room lands in Done by itself.</li><li><b>History. </b>What was taken, moved and done, with the time.</li><li><b>Own tasks. </b>For what the system cannot know: a call, a question to the CFO.</li></ol></div><div class="ann"><figure><img src="img/ws-portfolio-ann.webp" width="1800" height="1750" loading="lazy" decoding="async" alt="Deal portfolio: what needs me today, across every deal"><figcaption>Deal portfolio: what needs me today, across every deal</figcaption></figure><ol class="notes"><li><b>Urgent on the left. </b>Late fees first. Coral only for what is late.</li><li><b>The result on the right. </b>Capital deployed, the one cobalt tile on the screen.</li><li><b>Today. </b>The three most urgent deals as cards: how late, which stage, whose move.</li><li><b>One button, the action. </b>Opens the deal room with the right panel already open.</li><li><b>Also today. </b>The rest in one line, so the list starts high.</li><li><b>Ready to become a deal. </b>Leads that passed Screening.</li><li><b>Filters with counts. </b>Same names and the same rule as the blocks above.</li><li><b>Name the deals by. </b>The client until funding, the SPV after.</li></ol></div><div class="ann"><figure><img src="img/ws-room-ann.webp" width="1800" height="1562" loading="lazy" decoding="async" alt="Deal room: what happens next in this deal, and who does it"><figcaption>Deal room: what happens next in this deal, and who does it</figcaption></figure><ol class="notes"><li><b>The deal and its team. </b>Days over the ideal, each person's last actions.</li><li><b>Facts, one click deep. </b>Property, company and terms open as cards.</li><li><b>What holds it. </b>One line. Pink when the move is not ours.</li><li><b>Stages, measured. </b>Days against the ideal. Two stages can run at once.</li><li><b>Next actions. </b>Whose move, the task, the deadline, one button.</li><li><b>Documents of the stage. </b>What is missing goes straight into Next actions.</li><li><b>Client contact. </b>Next contact in the preferred channel. Calls are logged to the client card.</li><li><b>Recent activity. </b>Who did what, and what it means for the manager.</li></ol></div></section><section class="ch"><div class="chhead"><span class="chnr">7</span><span class="eyebrow">In use</span><h2>The wrong document, end to end</h2></div><p>The client uploads five files as a title deed. One of them is a sales agreement. In the console this was a task that stayed late after the upload. In the workspace it takes three steps and one message.</p><figure class="wide"><img src="img/ws-today.webp" width="1400" height="489" loading="lazy" decoding="async" alt="1. The morning: Client A is the first card in «Today». The button opens the deal room with the panel ready."><figcaption>1. The morning: Client A is the first card in «Today». The button opens the deal room with the panel ready.</figcaption></figure><div class="two"><figure><img src="img/ws-check.webp" width="700" height="1212" loading="lazy" decoding="async" alt="2. Check the files: four clean files accepted in one click, the suspect is marked."><figcaption>2. Check the files: four clean files accepted in one click, the suspect is marked.</figcaption></figure><figure><img src="img/ws-request.webp" width="700" height="1212" loading="lazy" decoding="async" alt="3. One request: the right file joins what is already missing. One message, reminders on day 1, 4 and 7."><figcaption>3. One request: the right file joins what is already missing. One message, reminders on day 1, 4 and 7.</figcaption></figure></div><div class="live"><div class="livehead"><span class="eyebrow">Try it</span><a href="https://iramum.github.io/pm-console-prototype/" target="_blank" rel="noopener">Open full screen ↗</a></div><iframe data-src="https://iramum.github.io/pm-console-prototype/" title="Workspace, interactive prototype" loading="lazy"></iframe><button class="btn loadlive" type="button">Load the prototype here</button></div></section><section class="ch"><div class="chhead"><span class="chnr">8</span><span class="eyebrow">Visual design and outcome</span><h2>Air, one cobalt card, coral only for late</h2></div><div class="cards c4"><div class="card"><span class="eyebrow">Rule 1</span><h4>Cards without borders</h4><p>White cards on a misty background, a soft shadow, a large radius.</p></div><div class="card"><span class="eyebrow">Rule 2</span><h4>One cobalt card per screen</h4><p>The brand blue marks the result: capital deployed, work done.</p></div><div class="card"><span class="eyebrow">Rule 3</span><h4>Coral only for late</h4><p>Late and missing get a coral outline and a pale pink fill.</p></div><div class="card"><span class="eyebrow">Rule 4</span><h4>A glow, fixed in the corner</h4><p>It stays in place while the cards scroll over it.</p></div></div><div class="compare" data-compare><div class="cmp-stage"><figure class="lo"><img src="img/ws-room-lofi.webp" width="1400" height="1215" loading="lazy" decoding="async" alt="Lo-fi, deal room"><figcaption>Lo-fi, deal room</figcaption></figure><figure class="hi"><img src="img/ws-room.webp" width="1400" height="1215" loading="lazy" decoding="async" alt="Hi-fi, deal room"><figcaption>Hi-fi, deal room</figcaption></figure></div><input type="range" min="0" max="100" value="50" aria-label="Slide between wireframe and final design"></div><div class="cards c4"><div class="card"><span class="eyebrow">Before</span><h4>Delays seen after the deal closed</h4><p>A spreadsheet of events, a board drawn after the fact, email and WhatsApp. One console card for every role.</p></div><div class="card"><span class="eyebrow">After</span><h4>One action per problem</h4><p>A Home that plans the day, one list for all deals, a room per deal. Every stage measured against its ideal, every open item with an owner.</p></div><div class="card"><span class="eyebrow">Next</span><h4>What I would do next</h4><p>Leads and Payments in the same workspace, empty and error states, a contrast check of the small grey labels, a moderated test with five or six managers.</p></div><div class="card"><span class="eyebrow">Measure</span><h4>What I would measure</h4><p>Days per stage against the ideal, hours from «Screening passed» to «Start the deal», repeated document requests per deal.</p></div></div><p class="lead">What I learned: the step forward came from asking what the manager does first in the morning. The second came from separating two views of one record: the CEO thinks in statuses, the manager in next steps. Prototyping in code with real stage data let us throw away versions without anyone feeling it was wasted work.</p></section></article></div><div class="case" id="case-research" role="dialog" aria-modal="true" aria-label="53 applications"><button class="close" type="button" aria-label="Close case">×</button><div class="bar"><b>02</b><span>53 applications</span><span class="mute">UX research, 2026</span></div><article><header class="casehead">
+<span class="eyebrow">Case study, UX research</span>
+<h1 tabindex="-1">Four proto-personas from 53 real applications</h1>
+<p class="lead">The team had a pain map from desk research, but nobody had checked it against real clients. I pulled every application from the team's deal pipeline and the website forms, removed tests and duplicates, and coded each one by situation, asset and the pain behind it.</p>
+<dl class="meta"><div><dt>Company</dt><dd>Private capital company, Dubai. Co-finances property owners and businesses against real estate</dd></div><div><dt>My role</dt><dd>Research, coding of applications, proto-personas, interview guides</dd></div><div><dt>Method</dt><dd>Desk research, pain map, content analysis of applications, jobs to be done</dd></div><div><dt>Result</dt><dd>Four proto-personas, data gaps, a changed focus for the ad funnel</dd></div></dl>
+<div class="nums"><div><b>53</b><span>real applications coded</span></div>
+<div><b>8</b><span>mapped pains found in applications</span></div>
+<div><b>10</b><span>mapped pains never showed up</span></div></div>
+</header><section class="ch"><div class="chhead"><span class="chnr">1</span><span class="eyebrow">Who applies</span><h2>The clients split into four groups, not one average client</h2></div><p>Eight of the mapped pains showed up in applications; ten never did, so they became content topics instead of offer material. Names are invented; no applicant data and no amounts are shown.</p><div class="personas"><div class="persona"><span class="eyebrow">P1, primary</span><h4>Samir, the owner</h4><p class="mute">Owns a completed flat in Dubai. The largest group: 4 in 10 applications.</p><dl><dt>Job</dt><dd>Release money from the property without selling it.</dd><dt>Pain</dt><dd>The bank judges his income, not the asset, and limits what the money may be used for.</dd><dt>Leaves when</dt><dd>The price comes before any answer about the amount.</dd></dl><p class="so"><b>So the product needs: </b>A five-question estimate before any talk about price; term range shown upfront.</p></div><div class="persona"><span class="eyebrow">P2, secondary</span><h4>Elena, the off-plan buyer</h4><p class="mute">Paid 40 to 50% for a flat under construction. 1 in 5 applications.</p><dl><dt>Job</dt><dd>Make the final payment at handover and keep what she has paid.</dd><dt>Pain</dt><dd>No mortgage before completion; the valuation comes in below her purchase price.</dd><dt>Leaves when</dt><dd>She learns about the gap at screening, not before.</dd></dl><p class="so"><b>So the product needs: </b>Calculate from the valuation, not the price, and reach her months before handover.</p></div><div class="persona"><span class="eyebrow">P3, secondary</span><h4>Omar, the business</h4><p class="mute">Company with property, needs capital by a date. 3 in 10 portal applications.</p><dl><dt>Job</dt><dd>Keep a project moving: build, buy out, bridge to a sale.</dd><dt>Pain</dt><dd>Lost while waiting for an answer, not because of price.</dd><dt>Leaves when</dt><dd>Nobody answers within days.</dd></dl><p class="so"><b>So the product needs: </b>A response timer in the team pipeline and a required field: how is it repaid?</p></div><div class="persona"><span class="eyebrow">P4, channel</span><h4>James, the broker</h4><p class="mute">Applies on behalf of a client. Most website form entries.</p><dl><dt>Job</dt><dd>Save a client's deal that the bank turned down.</dd><dt>Pain</dt><dd>Fears the platform will take the client directly.</dd><dt>Leaves when</dt><dd>He cannot see where the deal stands.</dd></dl><p class="so"><b>So the product needs: </b>Separate entry points for clients and brokers; deal status visible to the broker.</p></div></div></section><section class="ch"><div class="chhead"><span class="chnr">2</span><span class="eyebrow">What changed</span><h2>Findings the team could act on</h2></div><div class="cards c3"><div class="card"><span class="eyebrow">Biggest finding</span><h4>The main client already owns the property</h4><p>The active ad funnel had been built for buyers.</p></div><div class="card"><span class="eyebrow">Data gaps</span><h4>What the forms did not ask</h4><p>Residency is not collected, though residents and non-residents face different bank rules. Two of three lost deals have no reason recorded.</p></div><div class="card"><span class="eyebrow">Status</span><h4>Hypotheses, honestly labelled</h4><p>Built from application data, not interviews. Every motive is marked as a hypothesis, with an interview guide for each persona.</p></div></div></section></article></div><div class="case" id="case-transpo" role="dialog" aria-modal="true" aria-label="Transpo"><button class="close" type="button" aria-label="Close case">×</button><div class="bar"><b>03</b><span>Transpo</span><span class="mute">Mobility start-up, 2026</span></div><article><header class="casehead">
+<span class="eyebrow">Case study, mobility start-up, 2026</span>
+<h1 tabindex="-1">A driver takes a car without a trip to the fleet office</h1>
+<p class="lead">Taxi drivers in Abidjan rent their cars from fleets, often for cash. Getting a car means paperwork in the office, waiting for keys, a handover by staff. Transpo turns this into an app: the driver finds a free car on the map, reserves it and opens it with the phone and a fingerprint.</p>
+<dl class="meta"><div><dt>Product</dt><dd>Transpo, driver app (PWA), start-up in the founding phase</dd></div><div><dt>My role</dt><dd>Information architecture and UX of the driver app, personas, flows, interview guides, Figma design system, investor deck</dd></div><div><dt>Tools</dt><dd>Figma (variables, components, themes), FigJam, AI agents</dd></div></dl>
+</header><section class="ch"><div class="chhead"><span class="chnr">1</span><span class="eyebrow">Two personas, one app</span><h2>Design for the least confident user first</h2></div><div class="two"><div><div class="cards c2"><div class="card"><span class="eyebrow">Persona</span><h4>Seydou</h4><p>Rents daily, confident with the phone, pays with the mobile wallet Wave. Needs speed: find a car, take it, go.</p></div><div class="card"><span class="eyebrow">Persona</span><h4>Ibrahim</h4><p>Pays cash, low digital literacy. Needs one big button, a QR code for the cash agent, a loud sound and a green screen as proof of payment.</p></div></div><p>Decision: no separate app for Ibrahim. A simplified mode sits on top of the same screens (larger elements, fewer steps) and a sunlight contrast mode for driving outdoors.</p></div><figure class="phone"><img src="img/tp-app.webp" width="1300" height="1386" loading="lazy" decoding="async" alt="Driver home with live map and profile, Figma"><figcaption>Driver home with live map and profile, Figma</figcaption></figure></div></section><section class="ch"><div class="chhead"><span class="chnr">2</span><span class="eyebrow">Information architecture</span><h2>53 screens inventoried, 32 in the MVP, 21 parked</h2></div><p>I narrowed the scope to the driver app. Fleet owner and dispatcher panels moved to the next release. Every screen lives in exactly one place, depth at most three levels.</p><figure class="wide"><img src="img/tp-sitemap.webp" width="1394" height="717" loading="lazy" decoding="async" alt="Sitemap with priorities: MVP and next release"><figcaption>Sitemap with priorities: MVP and next release</figcaption></figure><ol class="flow"><li><b>Driver home</b>balance, shift, debt</li><li class="gate"><b>Own debt = 0?</b>only the driver's own debt blocks, not a co-driver's</li><li><b>Vehicle search</b>map or high-contrast list</li><li><b>Vehicle card</b>fuel at least 1/4, photos of earlier damage</li><li><b>Take</b>reserved for 10 to 15 min</li><li><b>Reserved</b>countdown, one extension of 5 min</li><li><b>Unlock</b>doors open online, fingerprint starts the engine</li></ol><p>Rule made visible: rent is never charged in the middle of the day. A shift can only start with zero personal debt; a promised payment bridges the night. The gate sits in the flow as one screen, so the driver always knows why the car does not open.</p></section><section class="ch"><div class="chhead"><span class="chnr">3</span><span class="eyebrow">System and research</span><h2>Variables, themes, components, and a research loop</h2></div><figure class="wide"><img src="img/tp-components.webp" width="1080" height="200" loading="lazy" decoding="async" alt="Component library, Figma"><figcaption>Component library, Figma</figcaption></figure><p>Brand and theme variables with dark, mid and light modes: text and surfaces switch automatically per slide or screen. Eight components bound to the variables. Decks are checked by script: contrast against WCAG 1.4.3, overlapping text and safe margins.</p><div class="two"><div><p>Field interviews with drivers are still ahead. To avoid drawing screens on assumptions, I stress-tested the flows with AI-simulated interviews of the personas, clearly labelled as simulations. Each insight is traced back to its source before it changes a flow. Open questions go into the next real interview guide.</p><ol class="flow small"><li><b>Interview guide</b>from open product questions</li><li><b>Simulated interview</b>AI personas grounded in desk research</li><li><b>Insight</b>logged with its source line</li><li><b>Flow review</b>accept, park or fork</li><li><b>Flow update</b>dated, reversible</li></ol></div><figure><img src="img/tp-journey.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Investor deck: the handover in minutes instead of hours, shown as fleet utilisation. One message per slide, one number as the hero."><figcaption>Investor deck: the handover in minutes instead of hours, shown as fleet utilisation. One message per slide, one number as the hero.</figcaption></figure></div></section></article></div><div class="case" id="case-data-pages" role="dialog" aria-modal="true" aria-label="Data pages"><button class="close" type="button" aria-label="Close case">×</button><div class="bar"><b>04</b><span>Data pages</span><span class="mute">Artist-run platform, since 2016</span></div><article><header class="casehead">
+<span class="eyebrow">Case study, artist-run platform, since 2016</span>
+<h1 tabindex="-1">Pages that are built from data, not drawn by hand</h1>
+<p class="lead">Ten years of projects of Experimental Field in Moscow, Montenegro, Serbia and Cologne. Instead of drawing each page, I keep the facts in tables (projects, people, newspaper issues, scans) and let scripts generate the pages from templates. A correction in one table updates every page that uses it.</p>
+<dl class="meta"><div><dt>Role</dt><dd>Co-founder, design, content model, agentic AI workflow</dd></div><div><dt>Pages</dt><dd>Archive by year, newspaper reader, exhibition pages</dd></div><div><dt>Principle</dt><dd>Same as a component library: one source, many views</dd></div></dl>
+</header><section class="ch"><div class="chhead"><span class="chnr">1</span><span class="eyebrow">Pages</span><h2>Archive, newspaper reader, exhibitions</h2></div><div class="four"><figure><img src="img/ef-archiv.webp" width="1100" height="955" loading="lazy" decoding="async" alt="Archive by year: format, role of the platform, funding, people"><figcaption>Archive by year: format, role of the platform, funding, people</figcaption></figure><figure><img src="img/ef-zeitung.webp" width="1100" height="955" loading="lazy" decoding="async" alt="Newspaper reader for the printed newspaper of each exhibition"><figcaption>Newspaper reader for the printed newspaper of each exhibition</figcaption></figure><figure><img src="img/ef-naht.webp" width="1100" height="955" loading="lazy" decoding="async" alt="Exhibition NAHT, Bonn 2026"><figcaption>Exhibition NAHT, Bonn 2026</figcaption></figure><figure><img src="img/ef-nachbild.webp" width="1100" height="955" loading="lazy" decoding="async" alt="Exhibition page with works, texts and numbers"><figcaption>Exhibition page with works, texts and numbers</figcaption></figure></div></section><section class="ch"><div class="chhead"><span class="chnr">2</span><span class="eyebrow">How I work with AI</span><h2>AI agents with rules, memory and checks</h2></div><p>I set up a working system around Claude Code in a Git repository. It prepares grant applications, keeps deadlines and builds the pages above. The point is not speed. The point is that the AI cannot silently skip a rule.</p><div class="cards c4"><div class="card"><span class="eyebrow">Canon</span><h4>One source of truth</h4><p>A map file tells every session where the facts live. A fact that is not in the source folder is not used, even if it sounds plausible.</p></div><div class="card"><span class="eyebrow">Roles</span><h4>Specialised subagents</h4><p>A curator that reviews ideas, a researcher for funders, a writer for applications, a writer for the public. Each hands over a file, not a chat message.</p></div><div class="card"><span class="eyebrow">Guards</span><h4>Hooks that block</h4><p>Scripts stop the agent before a wrong move: reading only the first lines of a document, writing a forbidden word, breaking a file encoding.</p></div><div class="card"><span class="eyebrow">Memory</span><h4>Decisions with reasons</h4><p>Every non-obvious decision is stored with why and how to apply it, so the next session does not repeat a solved problem.</p></div></div><div class="cards c3"><div class="card"><span class="eyebrow">Checks</span><h4>Status markers on every claim</h4><p>Confirmed, probable, not confirmed. A claim without a marker is not written.</p></div><div class="card"><span class="eyebrow">Schedule</span><h4>A cloud agent</h4><p>A weekly agent checks funding calls for changes and writes its findings back.</p></div><div class="card"><span class="eyebrow">Output</span><h4>Design-to-code</h4><p>Dashboards, web pages, print PDFs and calendars are generated from the same data. HTML is never edited by hand.</p></div></div></section></article></div>
+<section class="about" id="about"><div><h2>About</h2>
+<p>Economist by first degree, designer by retraining: UX/UI diploma, British Higher School of Design, 2018 to 2020. I treat a product as a set of rules people have to live with, and I make those rules visible.</p>
+<p>Research: interviews, jobs to be done, usability tests. Structure: screen inventory, sitemaps with priorities, user flows with explicit gates and edge cases. Build: Figma variables and components, design-to-code. Measure: Google Analytics 4 and Search Console, with a background in econometrics.</p></div>
+<div><h2>Tools and contact</h2>
+<p>Figma, FigJam, Miro, Webflow, Adobe Creative Suite, GA4, Search Console. Claude Code with subagents, Git and GitHub. I don't program myself: I read the code, direct it and check the output.</p>
+<p>Languages: English C1, German B1 (B2 course in progress), Russian native.</p>
+<p class="mute">Contact details are on my CV.</p>
+<p class="mute small">Earlier work: <a href="https://www.behance.net/mumrikova" target="_blank" rel="noopener">behance.net/mumrikova</a>.
+Print this page or save it as PDF to get every case on paper.</p></div></section>
+<footer><span>Irina Mumrikova, Cologne</span><span>All client, company and deal data in the cases are fictional.</span></footer>
+<script>
+(()=>{
+const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const stage=document.getElementById('stage'),svg=document.getElementById('thread'),path=svg.querySelector('path');
+const beads=[...document.querySelectorAll('.bead')];
+const N=beads.length;
+let rest=0,W,H,D,y0,sag,base=[],off=0,vel=0,target=0,raf=0,openId=null,sway=0,swayV=0,done=null,mob=false,step=.2,cur=0;
+function geo(){W=stage.clientWidth;H=stage.clientHeight;mob=W<700;
+D=mob?Math.min(W*.5,H*.26,240):Math.max(96,Math.min(220,W*.15,H*.22));
+const ib=document.querySelector('.intro').getBoundingClientRect().bottom-stage.getBoundingClientRect().top;
+// ends of the thread just under the intro, the lowest bead with its label still above the hint line
+y0=ib+D*.55+18;sag=Math.max(20,Math.min(H*.16,140,(H-70-D/2-60-y0)/1));stage.style.setProperty('--d',D+'px');
+step=mob?(D*1.45)/(W+120):1/(N+1);base=beads.map((_,i)=>mob?.5+i*step:(i+1)/(N+1));
+rest=mob?.5-base[cur]:0;svg.setAttribute('viewBox',`0 0 ${W} ${H}`)}
+// quadratic curve: both ends off-screen at y0, control point below the centre
+function pt(t,s){const x0=-60,x1=W+60,cx=W/2,cy=y0+2*(sag+s),u=1-t;
+return{x:u*u*x0+2*u*t*cx+t*t*x1,y:u*u*y0+2*u*t*cy+t*t*y0}}
+function draw(){const s=sway;path.setAttribute('d',`M-60 ${y0} Q ${W/2} ${y0+2*(sag+s)} ${W+60} ${y0}`);
+beads.forEach((b,i)=>{const tt=base[i]+off,q=pt(tt,s);
+b.style.transform=`translate(${q.x}px,${q.y}px)`;
+b.classList.toggle('near',Math.abs(tt-.5)<step/2);b.style.visibility=(tt<-.12||tt>1.12)?'hidden':'visible'})}
+function loop(){const dt=1/60,a=-170*(off-target)-22*vel;vel+=a*dt;off+=vel*dt;
+const sa=-140*sway-9*swayV;swayV+=sa*dt;sway+=swayV*dt;draw();
+if(Math.abs(off-target)<.0005&&Math.abs(vel)<.0005&&Math.abs(sway)<.05&&Math.abs(swayV)<.05){off=target;sway=0;draw();raf=0;
+if(done){const f=done;done=null;f()}return}raf=requestAnimationFrame(loop)}
+function animate(to,cb,tug){target=to;done=cb||null;if(tug)swayV+=tug;
+if(RM){off=to;sway=0;draw();if(done){const f=done;done=null;f()}return}if(!raf)raf=requestAnimationFrame(loop)}
+function centre(el){const r=el.getBoundingClientRect();return{x:r.left+r.width/2,y:r.top+r.height/2,r:r.width/2}}
+function reveal(panel,from,open){const big=Math.hypot(innerWidth,innerHeight);
+const a=`circle(${open?from.r:big}px at ${from.x}px ${from.y}px)`,b=`circle(${open?big:from.r}px at ${from.x}px ${from.y}px)`;
+if(RM||!panel.animate)return Promise.resolve();
+return panel.animate([{clipPath:a},{clipPath:b}],{duration:open?720:560,easing:'cubic-bezier(.7,0,.2,1)',fill:'forwards'}).finished}
+async function openCase(id,from,push){const panel=document.getElementById('case-'+id);if(!panel||openId===id)return;
+openId=id;panel.style.clipPath=`circle(${from.r}px at ${from.x}px ${from.y}px)`;panel.classList.add('on');panel.scrollTop=0;
+document.body.style.overflow='hidden';await reveal(panel,from,true);panel.style.clipPath='none';
+panel.getAnimations().forEach(x=>x.cancel());panel.querySelector('h1').focus({preventScroll:true});
+if(push)history.pushState({id},'','#'+id)}
+async function closeCase(push){if(!openId)return;const id=openId,panel=document.getElementById('case-'+id);
+const b=beads.find(x=>x.dataset.id===id);
+const from=(b&&b.style.visibility!=='hidden'&&scrollY<H*.5)?centre(b):{x:innerWidth-43,y:39,r:23};
+await reveal(panel,from,false);panel.classList.remove('on');panel.getAnimations().forEach(x=>x.cancel());panel.style.clipPath='';
+document.body.style.overflow='';openId=null;if(push)history.pushState({},'',location.pathname);
+if(b&&mob){cur=beads.indexOf(b);rest=.5-base[cur]}animate(rest,null,-60);(b||document.querySelector(`[data-open="${id}"]`))?.focus({preventScroll:true})}
+function pick(i){const b=beads[i];if(dragged){dragged=false;return}cur=i;if(scrollY>10)scrollTo({top:0,behavior:RM?'auto':'smooth'});
+animate(.5-base[i],()=>{const from=centre(b);
+if(RM||!b.animate){openCase(b.dataset.id,from,true);return}
+b.animate([{scale:'1'},{scale:'1.08'}],{duration:180,easing:'ease-out'}).finished.then(()=>openCase(b.dataset.id,centre(b),true))},90)}
+beads.forEach((b,i)=>{b.addEventListener('click',()=>pick(i));b.addEventListener('pointerenter',()=>{if(!raf)animate(target,null,25)})});
+document.querySelectorAll('[data-open]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();
+const id=a.dataset.open,i=beads.findIndex(b=>b.dataset.id===id);
+if(a.closest('.top')&&i>=0&&scrollY<H*.5){pick(i);return}
+openCase(id,{x:e.clientX||innerWidth/2,y:e.clientY||innerHeight/2,r:4},true)}));
+document.querySelectorAll('.case .close').forEach(c=>c.addEventListener('click',()=>closeCase(true)));
+addEventListener('keydown',e=>{if(e.key==='Escape'&&openId)closeCase(true)});
+addEventListener('popstate',()=>{const id=location.hash.slice(1);
+if(id&&document.getElementById('case-'+id))openCase(id,{x:innerWidth/2,y:innerHeight/2,r:4},false);else closeCase(false)});
+addEventListener('resize',()=>{geo();off=target=rest;draw()});
+// pull the thread: drag moves the beads along it; release snaps to a bead (phone) or springs back (desktop)
+let dx0=null,off0=0,dragged=false,lastX=0,lastT=0,v=0;
+stage.addEventListener('pointerdown',e=>{if(openId||e.button>0)return;dx0=e.clientX;off0=off;lastX=e.clientX;lastT=e.timeStamp;v=0});
+addEventListener('pointermove',e=>{if(dx0===null)return;const dx=e.clientX-dx0;
+if(!dragged&&Math.abs(dx)<7)return;if(!dragged){dragged=true;if(raf){cancelAnimationFrame(raf);raf=0}vel=0}
+const dt=Math.max(1,e.timeStamp-lastT);v=(e.clientX-lastX)/dt;lastX=e.clientX;lastT=e.timeStamp;
+off=off0+dx/(W+120);sway=Math.min(30,Math.abs(dx)*.08);draw()});
+addEventListener('pointerup',()=>{if(dx0===null)return;dx0=null;if(!dragged)return;
+if(mob){const proj=off+v*180/(W+120);let k=Math.round((.5-proj-base[0])/step);k=Math.max(0,Math.min(N-1,k));cur=k;rest=.5-base[k]}
+vel=v*1000/(W+120)*.4;animate(rest,null,0);setTimeout(()=>{dragged=false},0)});
+geo();off=target=rest;draw();
+const h=location.hash.slice(1);
+if(h&&document.getElementById('case-'+h)){const i=beads.findIndex(b=>b.dataset.id===h);if(i>=0){cur=i;geo();off=target=.5-base[i];draw()}
+const pnl=document.getElementById('case-'+h);pnl.classList.add('on');pnl.style.clipPath='none';openId=h;document.body.style.overflow='hidden'}
+else if(!RM){off=rest-.6;animate(rest,null,0)} // on arrival the beads slide in along the thread
+document.querySelectorAll('[data-compare]').forEach(c=>{const s=c.querySelector('.cmp-stage'),r=c.querySelector('input');
+const u=()=>s.style.setProperty('--x',r.value+'%');r.addEventListener('input',u);u()});
+document.querySelectorAll('.loadlive').forEach(b=>b.addEventListener('click',()=>{const box=b.closest('.live'),f=box.querySelector('iframe');
+f.src=f.dataset.src;box.classList.add('loaded')}));
+addEventListener('beforeprint',()=>document.querySelectorAll('.case').forEach(x=>x.style.clipPath='none'));
+})();
+</script>
+</body></html>
