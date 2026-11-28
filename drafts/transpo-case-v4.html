@@ -1,0 +1,1043 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Transpo, product discovery for car-rental fleets in Abidjan</title>
+
+<style>
+:root{--ink:#16131d;--body:#4a4655;--muted:#8f8a9c;--line:#ebe7f2;--line2:#dcd6e6;--soft:#f6f4fa;
+ --lime:#c6f05e;--limesoft:#f0f9d8;--violet:#7c3aed;--lilac:#f1ecfd;--red:#e04a3a;--redsoft:#fdecea;
+ --f:'Space Grotesk',system-ui,sans-serif}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:var(--ink);font:17px/1.6 var(--f);-webkit-font-smoothing:antialiased}
+a{color:inherit}img{display:block;max-width:100%;height:auto}figure{margin:0}
+.in{max-width:1200px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+header.top{border-bottom:1px solid var(--line)}
+header.top .in{display:flex;align-items:center;gap:16px;padding-block:16px}
+.me{text-decoration:none;font:700 16px var(--f)}.me span{font-weight:400;color:var(--body)}.sp{flex:1}
+.btn{display:inline-flex;align-items:center;height:42px;padding:0 20px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;font:600 14px var(--f);white-space:nowrap}
+.btn.o{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
+.hero{padding-block:72px 56px}
+.label{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.chip{display:inline-block;font:700 12px var(--f);letter-spacing:.12em;text-transform:uppercase;background:var(--ink);color:var(--lime);border-radius:6px;padding:6px 10px}
+.prod{font-size:14px;color:var(--body)}.prod b{color:var(--ink);font-size:17px;margin-right:6px}
+.logo{display:inline-block;width:14px;height:14px;background:var(--lime);box-shadow:6px 6px 0 var(--violet);margin-right:12px;vertical-align:-1px}
+h1{font:700 clamp(40px,6vw,76px)/1.02 var(--f);letter-spacing:-.035em;margin:24px 0 22px;max-width:1000px;text-wrap:balance}
+h2{font:700 clamp(28px,3.2vw,42px)/1.08 var(--f);letter-spacing:-.025em;margin:0 0 14px;text-wrap:balance}
+h3{font:700 20px/1.25 var(--f);letter-spacing:-.01em;margin:0 0 8px}
+.lead{font-size:clamp(18px,1.8vw,21px);line-height:1.55;max-width:760px;margin:0 0 32px;color:var(--body)}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 24px;border-top:2px solid var(--ink)}
+.facts>div{padding:14px 0;border-bottom:1px solid var(--line2)}
+.k,.ey{font:700 11px var(--f);letter-spacing:.12em;text-transform:uppercase}
+.facts .k{color:var(--muted)}.facts .v{font-size:15px;margin-top:4px;line-height:1.45}
+.route{display:flex;flex-wrap:wrap;gap:6px;margin:28px 0 0;padding:0;list-style:none;counter-reset:r}
+.route a{display:inline-block;font:600 13px var(--f);text-decoration:none;border:1.5px solid var(--line2);border-radius:999px;padding:5px 12px}
+.route a:hover{border-color:var(--ink)}
+.sec{display:grid;grid-template-columns:200px minmax(0,1fr);gap:0 40px;padding-block:72px;border-top:1px solid var(--line)}
+.rail{position:relative}
+@media(min-width:901px){.rail{position:sticky;top:24px;align-self:start}}
+.nr{display:block;font:700 44px/1 var(--f);letter-spacing:-.03em;color:var(--violet)}
+.ey{display:block;color:var(--muted);margin-top:8px}
+.intro{max-width:760px;color:var(--body);margin:0 0 28px;font-size:18px}
+.note{font-size:13px;color:var(--muted);margin-top:16px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.stats div{border-top:2px solid var(--ink);padding-top:12px}
+.stats b{display:block;font:700 clamp(34px,4vw,52px)/1 var(--f);letter-spacing:-.03em}
+.stats span{font-size:14px;color:var(--body);display:block;margin-top:6px}
+.chain{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;align-items:center;gap:10px;margin:34px 0 6px}
+.node{border:1.5px solid var(--ink);border-radius:14px;padding:14px 16px;text-align:center;font-weight:700}
+.node span{display:block;font-weight:400;font-size:13px;color:var(--body)}
+.node.y{background:var(--ink);color:#fff}.node.y span{color:#cfc9da}
+.link{font-size:13px;color:var(--body);text-align:center;min-width:70px}
+.link i{display:block;height:2px;background:var(--ink);margin:6px 0}
+.link.bad i{background:repeating-linear-gradient(90deg,var(--red) 0 6px,transparent 6px 11px)}
+.link.bad{color:var(--red);font-weight:700}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th{font:700 11px var(--f);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:left;padding:10px 12px 10px 0;border-bottom:2px solid var(--ink)}
+td{padding:14px 12px 14px 0;border-bottom:1px solid var(--line2);vertical-align:top}
+td b{font-weight:700}
+.tag{display:inline-block;font:700 11px var(--f);letter-spacing:.08em;text-transform:uppercase;border-radius:6px;padding:3px 8px;white-space:nowrap}
+.tag.p{background:var(--limesoft);color:#3d5a00}.tag.s{background:var(--soft);color:var(--body)}.tag.h{background:var(--lilac);color:var(--violet)}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.lose{border-radius:18px;padding:24px 24px 10px;background:var(--soft)}
+.lose h3{display:flex;align-items:center;gap:10px}.lose h3 i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.lose ul{list-style:none;margin:14px 0 0;padding:0}
+.lose li{padding:12px 0;border-top:1px solid var(--line2)}
+.lose li b{display:block;font-size:16px}.lose li span{display:block;font-size:14px;color:var(--body);margin-top:2px}
+.lose li em{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:4px}
+.big{margin:32px 0 0;padding:28px 32px;border-radius:18px;background:var(--ink);color:#fff}
+.big .k{color:var(--lime)}.big p{font:700 clamp(22px,2.4vw,30px)/1.25 var(--f);letter-spacing:-.015em;margin:8px 0 0}
+.hmw{margin-top:18px;padding:22px 26px;border-radius:18px;border:2px solid var(--violet)}
+.hmw .k{color:var(--violet)}.hmw p{font:700 22px/1.3 var(--f);margin:6px 0 0}
+.dec td:first-child{width:34%}.dec td:nth-child(3){width:22%;color:var(--muted);font-size:13px}
+.dec tr.open td:first-child b{color:var(--muted)}
+.scope{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.scope>div{border-radius:16px;padding:20px;border:1.5px solid var(--line2)}
+.scope>div.m{background:var(--limesoft);border-color:#d6e9a0}.scope>div.p{border-style:dashed}
+.scope ul{margin:10px 0 0;padding-left:18px;font-size:15px}.scope li{margin:4px 0}
+.scope .n{font:700 34px/1 var(--f);letter-spacing:-.02em;margin-top:6px}
+.fl{margin:0 0 40px}.fl h3{margin-bottom:4px}.fl .sub{font-size:15px;color:var(--body);margin:0 0 16px;max-width:760px}
+.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px 22px;align-items:stretch}
+.flow li{position:relative;min-width:0;border:1.5px solid var(--ink);border-radius:12px;padding:10px 12px;font-size:13px;line-height:1.35;background:#fff}
+.flow li:not(:last-child)::after{content:"";position:absolute;right:-19px;top:50%;width:14px;height:2px;background:var(--ink)}
+.flow li:not(:last-child)::before{content:"";position:absolute;right:-20px;top:calc(50% - 4px);border:5px solid transparent;border-left:6px solid var(--ink)}
+.flow li b{display:block;font-size:14px}.flow li span{display:block;color:var(--body);margin-top:2px}
+.flow li.g{border-style:dashed;border-color:var(--violet)}.flow li.g b{color:var(--violet)}
+.flow li.h{background:var(--lilac);border-color:var(--violet)}
+.flow li.a{background:var(--limesoft);border-color:#9bbf2c}
+.flow li.x{background:var(--ink);color:#fff}.flow li.x span{color:#cfc9da}
+.flow.today li{border-color:var(--line2);color:var(--body)}.flow.today li b{color:var(--red)}
+.flow.today li:not(:last-child)::after{background:var(--line2)}.flow.today li:not(:last-child)::before{border-left-color:var(--line2)}
+.rowlabel{font:700 11px var(--f);letter-spacing:.12em;text-transform:uppercase;margin:16px 0 8px;color:var(--muted)}
+.branch{margin-top:10px;font-size:14px;color:var(--body);display:flex;gap:18px;flex-wrap:wrap}
+.branch span::before{content:"\21B3  ";color:var(--violet);font-weight:700}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--body);margin:-10px 0 28px}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:-2px;margin-right:6px;border:1.5px solid var(--ink)}
+.arch{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.surf{border:1.5px solid var(--ink);border-radius:16px;overflow:hidden}
+.surf .hd{padding:14px 18px;background:var(--ink);color:#fff}.surf .hd span{display:block;font-size:13px;color:#cfc9da}
+.surf.d .hd{background:var(--lime);color:var(--ink)}.surf.d .hd span{color:#3d5a00}
+.surf.g .hd{background:var(--lilac);color:var(--ink)}.surf.g .hd span{color:var(--violet)}
+.surf ul{list-style:none;margin:0;padding:8px 18px 14px}.surf li{padding:8px 0;border-bottom:1px solid var(--line);font-size:15px}
+.surf li span{display:block;font-size:13px;color:var(--muted)}
+.data{margin-top:18px;border-radius:16px;padding:16px 18px;background:var(--soft);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.data b{margin-right:6px}.data span{font:600 14px var(--f);background:#fff;border:1.5px solid var(--line2);border-radius:999px;padding:5px 12px}
+.roles{margin-top:18px}.roles td:first-child{width:22%}
+.sketch{display:grid;grid-template-columns:1fr 1fr 2fr;gap:18px;align-items:start}
+.sketch .ph{border:8px solid var(--ink);border-radius:34px;overflow:hidden}
+.sketch .dk{border:1.5px solid var(--ink);border-radius:10px;overflow:hidden}
+.sketch figcaption{font-size:13px;color:var(--body);margin-top:8px}
+.sketch .col{display:grid;gap:18px}
+.open{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.open li{padding:14px 0;border-bottom:1px solid var(--line2);display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:20px}
+.open li span{font-size:14px;color:var(--muted)}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.three div{border-top:2px solid var(--ink);padding-top:14px;font-size:15px;line-height:1.6;color:var(--body)}
+.three b{display:block;font:700 21px/1.2 var(--f);letter-spacing:-.015em;margin-bottom:8px;color:var(--ink)}
+footer{border-top:1px solid var(--line);padding-block:32px 64px;font-size:14px;color:var(--body)}
+@media(max-width:900px){
+ .sec{grid-template-columns:1fr;gap:12px}.rail{display:flex;align-items:baseline;gap:12px}.ey{margin:0}
+ .facts,.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.two,.scope,.arch,.three{grid-template-columns:1fr}
+ .chain{grid-template-columns:1fr;text-align:center}.link i{width:2px;height:18px;margin:4px auto}
+ .sketch{grid-template-columns:1fr 1fr}.sketch .col{grid-column:1/-1}
+ .open li{grid-template-columns:1fr;gap:4px}.dec td:nth-child(3){display:none}}
+@media(max-width:900px){.flow{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){.me span{display:none}.hero{padding-block:40px 32px}.flow{grid-template-columns:1fr;gap:14px}
+ .flow li:not(:last-child)::after{right:auto;left:24px;top:auto;bottom:-14px;width:2px;height:12px}.flow li:not(:last-child)::before{display:none}}
+@page{size:A4;margin:14mm 13mm 16mm}
+@media print{
+ body{font-size:10pt}header.top .btn,.route{display:none}.in{max-width:none;padding:0}
+ .hero{padding-block:2mm 6mm}h1{font-size:30pt;margin:3mm 0}.lead{font-size:12pt}
+ .sec{grid-template-columns:28mm minmax(0,1fr);gap:0 6mm;padding-block:7mm;border-top:0}#s3,#s4,#s6,#s7,#s8{break-before:page}
+ .sec.keep{break-before:auto}.rail{position:static}.nr{font-size:24pt}
+ h2{font-size:20pt}.intro{font-size:11pt}.stats b{font-size:24pt}
+ .two,.scope,.arch,.three{gap:5mm}.flow{grid-template-columns:repeat(6,minmax(0,1fr));gap:6px 16px}.flow li{font-size:8.5pt;padding:6px 7px}
+ .flow li:not(:last-child)::after{right:-14px;width:10px}.flow li:not(:last-child)::before{right:-15px}
+ .fl{break-inside:avoid;margin-bottom:8mm}.lose,.surf,.scope>div,.big,.hmw,table,tr{break-inside:avoid}
+ .sketch{grid-template-columns:1fr 1fr 2fr}.sketch .col{grid-column:auto}
+ .rail{display:block}.ey{margin-top:2mm}.facts,.stats{grid-template-columns:repeat(4,minmax(0,1fr))} .two{grid-template-columns:1fr 1fr}.scope,.arch,.three{grid-template-columns:repeat(3,minmax(0,1fr))} .chain{grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;text-align:left}.link i{width:auto;height:2px;margin:6px 0} .open li{grid-template-columns:minmax(0,1fr) 50mm;gap:5mm}.dec td:nth-child(3){display:table-cell} .sketch{grid-template-columns:1fr 1fr 2fr}.lose{padding:4mm 4mm 1mm}.lose li{padding:2mm 0}.lose li span{font-size:8.5pt} td{padding:2.2mm 3mm 2.2mm 0}table{font-size:9pt}.big p{font-size:15pt}.hmw p{font-size:13pt}
+ *{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
+/* ---- new parts ---- */
+:root{--violet:#5b21b6;--brand:#7c3aed;--ease:cubic-bezier(.22,.61,.36,1)}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------- layers: a tall section, a sticky screen inside ---------- */
+.layers{position:relative;height:calc(var(--n) * 75vh + 100vh)}
+.pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;
+ background:var(--bg,#f6f4fa);color:var(--fg,#16131d);transition:background-color .6s var(--ease),color .6s var(--ease)}
+.pin .wrap{height:100%;max-width:1440px;margin:0 auto;padding:40px 40px 32px;
+ display:grid;grid-template-columns:minmax(300px,3fr) minmax(0,8fr);gap:32px;align-items:center}
+
+/* text column: all steps share one grid cell, only the current one shows */
+.copy{min-width:0;display:flex;flex-direction:column;gap:28px}
+.steps{display:grid}
+.step{grid-area:1/1;display:flex;flex-direction:column;gap:14px;opacity:0;visibility:hidden;transform:translateY(12px);
+ transition:opacity .25s var(--ease),transform .25s var(--ease),visibility 0s linear .25s}
+.step.cur{opacity:1;visibility:visible;transform:none;transition:opacity .45s var(--ease) .12s,transform .45s var(--ease) .12s,visibility 0s}
+.sey{margin:0;font:700 12px var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--acc,#5b21b6)}
+.step h2{margin:0;font:700 clamp(34px,3.8vw,58px)/1.02 var(--f);letter-spacing:-.03em;text-wrap:balance}
+.step p{margin:0;max-width:440px;font-size:17px;line-height:1.55;color:var(--sub,#4a4655)}
+
+/* colour test, steps 3 to 5 */
+.test{list-style:none;margin:0;padding:0;display:grid;gap:8px;max-width:400px}
+.test li{display:grid;grid-template-columns:28px 1fr auto;align-items:center;gap:12px;font-size:14px;font-weight:600;
+ opacity:0;transform:translateY(6px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
+.test li.on{opacity:.45;transform:none}.test li.cur{opacity:1}
+.test i{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;color:#fff;font:700 11px var(--f);font-style:normal}
+.test b{font-variant-numeric:tabular-nums}
+.test .ok{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--lime);color:var(--ink);font-size:12px;margin-left:6px;vertical-align:1px}
+
+/* progress + controls */
+.ctrl{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.ctrl button{width:44px;height:44px;border-radius:50%;border:1.5px solid currentColor;background:transparent;color:inherit;cursor:pointer;display:grid;place-items:center}
+.ctrl button:disabled{opacity:.3;cursor:default}
+.dots{display:flex;gap:6px;align-items:center;margin-left:4px}
+.dots a{display:block;width:8px;height:8px;border-radius:50%;background:currentColor;opacity:.25;transition:opacity .3s,width .3s var(--ease)}
+.dots a.cur{opacity:1;width:24px;border-radius:4px}
+.count{font:600 13px var(--f);letter-spacing:.06em;font-variant-numeric:tabular-nums}
+.hint{font-size:13px;color:var(--sub,#4a4655)}
+
+/* stage: fixed 1000 x 720 board, scaled to fit, nothing is placed outside it */
+.view{position:relative;min-width:0;height:100%;min-height:300px}
+.board{position:absolute;left:50%;top:50%;width:1000px;height:720px;transform-origin:50% 50%;transform:translate(-50%,-50%) scale(var(--s,.8))}
+.lay{opacity:0;transition:opacity .5s var(--ease),transform .6s var(--ease)}
+.lay.on{opacity:1;transform:none}
+.phone.lay,.lbl.lay,.arrow.lay{transform:none}
+
+.lbl{position:absolute;top:0;display:flex;align-items:center;gap:10px;font:700 15px var(--f);white-space:nowrap}
+.mk{width:30px;height:30px;border-radius:50%;background:var(--lime);color:var(--ink);display:grid;place-items:center;font:700 14px var(--f);flex:none}
+
+.phone{position:absolute;top:56px;width:260px;height:544px;border:8px solid #16131d;border-radius:36px;background:#fff;overflow:hidden;
+ box-shadow:0 0 0 1px var(--ring,transparent),0 24px 50px rgba(22,19,29,.18)}
+.phone .ph{position:absolute;inset:0;display:grid;place-items:center;font:700 22px var(--f);color:#b3abc4}
+.phone img{position:absolute;left:0;top:0;width:100%;height:auto;opacity:0;transform:translateY(-14px);transition:opacity .5s var(--ease),transform .6s var(--ease)}
+.phone img.on{opacity:1;transform:none}
+.phone.b img{transition-delay:.08s}
+.arrow{position:absolute;left:484px;top:320px}
+
+.disp{position:absolute;left:300px;top:630px;width:400px;background:#16131d;color:#fff;border-radius:16px;padding:14px 18px;
+ border:1px solid #3a3546;box-shadow:0 14px 30px rgba(22,19,29,.22);transform:translateY(12px)}
+.disp small{display:block;font:700 11px var(--f);letter-spacing:.12em;color:#cfc9da;margin-bottom:8px}
+.disp div{display:flex;align-items:center;gap:12px;font-size:14px}
+.disp span{flex:1;background:var(--violet);border-radius:8px;padding:5px 10px;font-weight:600}
+
+/* side zones: x 0..200 and 800..1000, phones live in 220..780 */
+.cmp{position:absolute;width:200px;display:flex;flex-direction:column;gap:8px}
+.cmp small{font:700 11px var(--f);letter-spacing:.12em;text-transform:uppercase;color:var(--sub,#4a4655)}
+.c-left{left:0}.c-right{left:800px}
+.c1{top:120px;transform:translate(-40px,0)}.c2{top:250px;transform:translate(-40px,0)}
+.c3{top:120px;transform:translate(40px,0)}.c4{top:280px;transform:translate(40px,0)}
+.c2.on{transition-delay:.08s}.c3.on{transition-delay:.16s}.c4.on{transition-delay:.24s}
+.listen{display:flex;align-items:center;gap:10px;height:48px;padding:0 14px;border-radius:14px;background:var(--violet);color:#fff;font:600 16px var(--f)}
+.park{width:52px;height:52px;border-radius:14px;background:var(--violet);color:#fff;display:grid;place-items:center;font:700 24px var(--f)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}.chips span{background:#16131d;color:#fff;font:700 13px var(--f);padding:6px 12px;border-radius:8px}
+.pin.dark .chips span{background:#fff;color:#16131d}
+.action{height:52px;border-radius:16px;background:#16131d;color:#fff;display:grid;place-items:center;font:600 17px var(--f)}
+.pin.dark .action{background:#fff;color:#16131d}
+
+/* context layer: inside the phones' zone x 210..790 */
+.ctx{position:absolute;left:210px;top:56px;width:580px;display:grid;grid-template-columns:262px 1fr;gap:20px;align-items:stretch;transform:translateY(16px)}
+.cfacts{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.cfacts li{background:#fff;color:#16131d;border-radius:16px;padding:16px;box-shadow:0 10px 24px rgba(22,19,29,.08);display:grid;grid-template-columns:36px 1fr;gap:12px;font-size:15px;line-height:1.35;align-content:center}
+.cfacts b{display:block;font-size:17px;margin-bottom:2px}
+.ic{width:36px;height:36px;border-radius:10px;background:#16131d;display:grid;place-items:center}
+.talk{list-style:none;margin:0;padding:18px;background:#fff;color:#16131d;border-radius:16px;box-shadow:0 10px 24px rgba(22,19,29,.08);display:flex;flex-direction:column;justify-content:space-between;gap:14px}
+.talk li{display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start}
+.talk .tx{display:flex;flex-direction:column;gap:8px;min-width:0}
+.talk .tx>b{font-size:15px;line-height:1.3;padding-top:5px}
+.listen.lg{height:52px;font-size:18px;padding:0 16px;border-radius:14px;gap:10px}.listen .wave{margin-left:auto}
+.said{margin:0;font-size:15px;line-height:1.45;color:#4a4655}
+.talk .action{height:52px;font-size:18px;border-radius:14px}
+.say{grid-column:1/-1;margin:20px 0 0}
+.say blockquote{margin:0;font:700 34px/1.15 var(--f);letter-spacing:-.02em;text-indent:-.4em}
+.say figcaption{margin-top:10px;font-size:14px;color:var(--sub,#4a4655)}
+
+/* phone width: text on top, board below */
+@media (max-width:820px){
+ .pin .wrap{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr);gap:12px;padding:20px 20px 16px;align-items:stretch}
+ .copy{gap:12px}.step h2{font-size:30px}.step p,.hint{display:none}.test{gap:4px}.test li{font-size:13px}
+ .test i{width:22px;height:22px}
+ .view{overflow:hidden}.cmp{display:none}
+ .ctx{grid-template-columns:1fr;left:225px;width:550px;top:0;gap:0}.cfacts{display:none}
+ .talk{padding:22px;gap:16px}.talk li{grid-template-columns:40px 1fr}.talk .mk{width:40px;height:40px;font-size:18px}.talk .tx>b{font-size:22px;padding-top:6px}.listen.lg,.talk .action{height:68px;font-size:26px}.said{font-size:22px}.say{margin-top:18px}.say blockquote{font-size:38px}.say figcaption{font-size:18px}
+ .step[data-i="0"] p{display:block;font-size:14px;line-height:1.45}
+}
+@media (prefers-reduced-motion:reduce){
+ *{transition-duration:.01s!important;transition-delay:0s!important}
+}
+/* ---------- proto-personas: a one-line legend, two equal boxes ---------- */
+
+.made .ey2,.next .ey2{display:block;font:700 12px var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--violet);margin-bottom:14px}
+.made h2,.next h2{font:700 clamp(30px,3.4vw,46px)/1.06 var(--f);letter-spacing:-.025em;margin:0 0 14px;max-width:900px;text-wrap:balance}
+.made .intro,.next .intro{max-width:760px;color:var(--body);font-size:18px;margin:0 0 32px}
+.col-h{font:700 11px var(--f);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 16px}
+.t{display:inline-block;justify-self:start;align-self:start;font:700 10px/1 var(--f);letter-spacing:.1em;text-transform:uppercase;border-radius:6px;padding:6px 8px;white-space:nowrap}
+.t.src{background:var(--ink);color:#fff}.t.fnd{background:var(--lilac);color:var(--violet)}
+.t.hyp{background:#fff;color:var(--body);border:1.5px dashed #9c95ac;padding:4.5px 6.5px}
+.kinds{list-style:none;margin:0;padding:16px 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;border-block:1px solid var(--line)}
+.kinds li{display:grid;grid-template-columns:104px 1fr;gap:12px;align-items:start}
+.kinds p{margin:0;font-size:15px;line-height:1.45;color:var(--body)}.kinds b{color:var(--ink)}
+.trust{margin-top:32px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:stretch}
+.box{border-radius:20px;padding:24px;display:flex;flex-direction:column}
+.card{border:2px solid var(--ink)}
+.card h3{font:700 26px/1.15 var(--f);margin:0}.card .role{font-size:15px;color:var(--body);margin:4px 0 12px}
+.card ul{list-style:none;margin:auto 0 0;padding:0}
+.card li{display:grid;grid-template-columns:104px 1fr;gap:12px;align-items:start;padding:12px 0;border-top:1px solid var(--line);font-size:16px;line-height:1.4}
+.six{background:var(--soft);border:2px solid var(--soft)}
+.ppl{flex:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:10px}
+.ppl span{display:flex;flex-direction:column;justify-content:center;border-radius:14px;padding:12px 16px;font-size:14px;line-height:1.35;background:#fff;color:var(--body)}
+.ppl span b{font-size:17px;color:var(--ink)}
+.ppl span.hl{box-shadow:inset 0 0 0 2px var(--violet)}
+.simline{margin:16px 0 0;font-size:14px;line-height:1.5;color:var(--muted)}
+.verdict{margin-top:32px;padding:24px 28px;border-radius:18px;background:var(--ink);color:#fff}
+.verdict .k{font:700 11px var(--f);letter-spacing:.12em;text-transform:uppercase;color:var(--lime)}
+.verdict p{font:700 clamp(19px,2vw,25px)/1.3 var(--f);letter-spacing:-.01em;margin:8px 0 0;max-width:980px}
+
+/* ---------- next: the field ---------- */
+
+.tracks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.track{border-radius:20px;padding:24px;background:var(--soft)}
+.track h3{font:700 21px/1.25 var(--f);margin:0 0 4px}.track .sub{font-size:14px;color:var(--body);margin:0 0 14px}
+.track ol{margin:0;padding:0;list-style:none;counter-reset:q}
+.track li{counter-increment:q;display:grid;grid-template-columns:28px 1fr;gap:10px;padding:10px 0;border-top:1px solid var(--line2,#dcd6e6);font-size:15px;line-height:1.45}
+.track li::before{content:counter(q);width:24px;height:24px;border-radius:50%;background:var(--lime);color:var(--ink);display:grid;place-items:center;font:700 12px var(--f)}
+.track li span{display:block;font-size:13px;color:var(--muted)}
+@media (max-width:900px){
+ .kinds,.trust,.tracks{grid-template-columns:1fr}.six{padding-top:0}
+}
+@media (max-width:520px){.card li,.kinds li{grid-template-columns:1fr;gap:6px}}
+.after{padding-block:72px 96px}
+.after h2{font:700 clamp(28px,3.2vw,42px)/1.08 var(--f);letter-spacing:-.025em;margin:0 0 14px}
+.after p{max-width:640px;color:var(--body);margin:0 0 24px}
+
+.lanes{display:grid;grid-template-columns:120px repeat(4,minmax(0,1fr));gap:10px}
+.mo{font:700 15px/1.3 var(--f);display:flex;align-items:center;gap:10px;padding-bottom:4px}
+.mo span{width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:12px;flex:none}
+.lh{font:700 11px/1.3 var(--f);letter-spacing:.12em;text-transform:uppercase;align-self:center}
+.lh.d{color:#3d5a00}.lh.f{color:#5b21b6}
+.cell{border-radius:14px;padding:14px 16px;font-size:14px;line-height:1.45;color:var(--body)}
+.cell b{display:block;font-size:16px;line-height:1.3;color:var(--ink);margin-bottom:4px}
+.cell.d{background:var(--limesoft)}.cell.f{background:var(--lilac)}
+.always{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:12px}
+.always .lh{width:120px;margin-right:2px}
+.always span:not(.lh){font:600 14px var(--f);border:1.5px solid var(--line2);border-radius:999px;padding:5px 12px}
+@media(max-width:900px){.lanes{grid-template-columns:1fr 1fr}.lanes .lh:first-child{display:none}
+ .lanes{grid-auto-flow:row}.lh{grid-column:1/-1;margin-top:8px}.mo{display:none}
+ .cell::before{content:attr(data-mo);display:block;font:700 11px var(--f);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+ .always .lh{width:100%}}
+
+.fl4 .fx{border-radius:14px;padding:14px 16px;font-size:15px;line-height:1.4}
+.fl4 .t0{color:var(--muted);background:var(--soft)}
+.fl4 .t1{background:var(--ink);color:#fff;font-weight:600;font-size:16px}
+.lh.v{color:var(--violet)}
+.fl4 .st{padding:4px 0 0}
+.fl4 .st ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.fl4 .st li{font:600 12px var(--f);border:1.5px solid var(--line2);border-radius:999px;padding:3px 9px;white-space:nowrap}
+.fl4 .st li:last-child{border-color:var(--violet);color:var(--violet)}
+.more{margin-top:24px;border-top:1px solid var(--line)}
+.more summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:10px;margin-top:16px;height:44px;padding:0 18px;border:1.5px solid var(--ink);border-radius:999px;font:600 14px var(--f)}
+.more summary::-webkit-details-marker{display:none}
+.more summary::after{content:"+";font-size:18px;line-height:1}
+.more[open] summary::after{content:"\2212"}
+.morebody{margin-top:28px}
+@media(max-width:900px){
+ .fl4{display:flex;flex-direction:column;gap:8px}.fl4>*{order:var(--o)}.fl4 .lh{display:none}
+ .fl4 .mo{display:flex;margin-top:18px}.fl4 .mo:first-of-type{margin-top:0}
+ .fl4 .fx[data-k]::before{content:attr(data-k);display:block;font:700 11px var(--f);letter-spacing:.1em;text-transform:uppercase;opacity:.7;margin-bottom:6px}}
+
+.sechead{padding-bottom:24px}
+.kinds li{grid-template-columns:1fr;gap:8px}
+.col-h .t{margin-left:8px;vertical-align:1px}
+.layers{border-top:0}
+
+.pin{background:#fff;color:var(--ink);transition:none}
+@media (min-width:821px){.pin .wrap{max-width:1200px;padding:40px max(24px,env(safe-area-inset-right,0px)) 32px max(24px,env(safe-area-inset-left,0px));grid-template-columns:minmax(280px,3fr) minmax(0,7fr);gap:40px}}
+.step h2{font:700 clamp(28px,3.2vw,42px)/1.08 var(--f);letter-spacing:-.025em}
+.step p{font-size:17px;color:var(--body)}
+.sey{display:flex;align-items:baseline;gap:10px;font:500 14px/1.3 var(--f);letter-spacing:0;text-transform:none;color:var(--muted)}
+.sey b{font-weight:600;color:var(--violet)}
+.lbl{font:500 17px var(--f);color:var(--body);gap:10px}
+.mk{width:26px;height:26px;font:600 13px var(--f)}
+.phone{border-width:6px;box-shadow:0 10px 28px rgba(22,19,29,.10)}
+.cfacts li,.talk{box-shadow:none;border:1px solid var(--line2)}
+.disp{box-shadow:none}
+.skip{display:inline-flex;align-items:center;gap:6px;font:500 14px var(--f);color:var(--body);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line2)}
+.skip:hover{color:var(--ink);text-decoration-color:currentColor}
+.scen{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:40px;align-items:start;padding-top:36px;margin-top:36px;border-top:1px solid var(--line)}
+.scen:first-of-type{border-top:0;margin-top:8px;padding-top:0}
+.ftext h3{font:700 24px/1.2 var(--f);letter-spacing:-.01em;margin:0 0 10px}
+.flead{margin:0 0 20px;font-size:16px;line-height:1.5;color:var(--body)}
+.fsteps{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.fsteps li{display:grid;grid-template-columns:26px 1fr;gap:12px;align-items:start}
+.fsteps .mk{width:26px;height:26px;font:600 13px var(--f)}
+.fsteps p{margin:0;font-size:16px;line-height:1.45;color:var(--ink);padding-top:2px}
+.fnote{margin:20px 0 0;padding:12px 14px;border-radius:12px;background:var(--soft);font-size:14px;line-height:1.45;color:var(--body)}
+.shot{margin:0}
+.frame{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line2)}
+.frame img{width:100%;height:auto}
+.fpin{position:absolute;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:var(--lime);color:var(--ink);display:grid;place-items:center;font:700 13px var(--f);box-shadow:0 0 0 3px #fff,0 4px 10px rgba(22,19,29,.2)}
+.shot figcaption{margin-top:8px;font-size:13px;color:var(--muted)}
+@media (max-width:900px){.scen{grid-template-columns:1fr;gap:20px}.fpin{width:22px;height:22px;margin:-11px 0 0 -11px;font-size:11px}}
+@media (max-width:820px){.step h2{font-size:26px}.step p.sey{display:flex;font-size:13px;line-height:1.3}}
+
+
+
+
+
+
+
+
+
+/* ---------- section: tall, sticky screen inside ---------- */
+.ly-sw{position:relative;height:calc(var(--n) * 75vh + 100vh)}
+.ly-pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#fff}
+.ly-frame{position:relative;height:100%;max-width:1200px;margin:0 auto;padding:0 24px;display:flex;flex-direction:column}
+.ly-g12{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px}
+.ly-c2{grid-column:span 2}.ly-c3{grid-column:span 3}.ly-c4{grid-column:span 4}
+.ly-cols{position:absolute;inset:0 24px;pointer-events:none}
+.ly-cols div{border-left:1px solid var(--line);border-right:1px solid var(--line)}
+
+/* meta row */
+.ly-meta{position:relative;flex:none}
+.ly-rule4{height:4px;background:var(--ink)}.ly-rule1{height:1px;background:var(--ink)}
+.ly-meta .ly-g12{padding:12px 0;font-size:13px;line-height:1.35;align-items:start}
+.ly-meta b{font-weight:700}.ly-meta .ly-m{color:var(--muted)}
+.ly-meta .ly-ct{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+
+/* main */
+main.ly-g12{position:relative;flex:1;min-height:0;padding:20px 0;align-items:stretch}
+.ly-l{grid-column:1 / span 4;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:16px}
+.ly-r{grid-column:5 / span 8;min-width:0;position:relative}
+.ly-steps{display:grid}
+.ly-step{grid-area:1/1;display:flex;flex-direction:column;gap:12px;opacity:0;visibility:hidden;transform:translateY(12px);
+ transition:opacity .2s var(--ease),transform .2s var(--ease),visibility 0s linear .2s}
+.ly-step.cur{opacity:1;visibility:visible;transform:none;transition:opacity .45s var(--ease) .12s,transform .45s var(--ease) .12s,visibility 0s}
+.ly-num{margin:0;font:600 clamp(88px,9vw,148px)/.8 var(--f);letter-spacing:-.06em;color:var(--violet);font-variant-numeric:tabular-nums}
+.ly-sey{margin:10px 0 0;font:500 13px var(--f);color:var(--muted)}
+.ly-step h2{margin:0;font:600 clamp(28px,3vw,42px)/1.04 var(--f);letter-spacing:-.03em;text-wrap:balance}
+.ly-step p.ly-t{margin:0;max-width:380px;font-size:15px;line-height:1.5;color:var(--body)}
+
+/* list of layers */
+.ly-legend{list-style:none;margin:0;padding:0;font-size:14px;border-bottom:1px solid var(--ink)}
+.ly-legend li{border-top:1px solid var(--ink)}
+.ly-legend button{width:100%;display:grid;grid-template-columns:40px 1fr auto;align-items:center;min-height:32px;padding:0;border:0;background:none;
+ font:inherit;text-align:left;color:var(--ink);cursor:pointer;opacity:.4;transition:opacity .3s,color .3s}
+.ly-legend button .ly-n{font-weight:600;font-variant-numeric:tabular-nums}
+.ly-legend button .ly-k{font-weight:400}
+.ly-legend button .ly-mk{font-size:11px}
+.ly-legend li.done button{opacity:1}
+.ly-legend li.cur button{opacity:1;color:var(--violet)}.ly-legend li.cur .ly-k{font-weight:600}
+.ly-legend button:hover{opacity:1}
+.ly-ctrl{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ly-ctrl button{width:44px;height:44px;border:1px solid var(--ink);background:#fff;color:var(--ink);cursor:pointer;display:grid;place-items:center}
+.ly-ctrl button#ly-next{background:var(--ink);color:#fff}
+.ly-ctrl button:disabled{opacity:.25;cursor:default}
+.ly-ctrl .ly-hint{margin-left:8px;font-size:13px;color:var(--muted)}
+
+/* board: fixed 1000 x 720, scaled */
+.ly-view{position:absolute;inset:0}
+.ly-board{position:absolute;left:50%;top:50%;width:1000px;height:720px;transform-origin:50% 50%;transform:translate(-50%,-50%) scale(var(--s,.8))}
+.ly-lay{opacity:0;transition:opacity .45s var(--ease),transform .7s cubic-bezier(.2,.9,.25,1)}
+.ly-lay.on{opacity:1;transform:none}
+.ly-tag{position:absolute;top:16px;margin:0;font:600 14px var(--f);padding:8px 12px;background:var(--ink);color:#fff}
+.ly-tag.ly-v{background:var(--violet)}
+.ly-phone{position:absolute;top:72px;width:260px;height:544px;border:7px solid var(--ink);border-radius:36px;background:#fff;overflow:hidden}
+.ly-phone .ly-ph{position:absolute;inset:0;display:grid;place-items:center;font:600 20px var(--f);color:#8f8a9c}
+.ly-phone img{position:absolute;left:0;top:0;width:100%;height:auto;opacity:0;transform:translateY(-60px);transition:opacity .5s var(--ease),transform .7s cubic-bezier(.2,.9,.25,1)}
+.ly-phone img.on{opacity:1;transform:none}
+.ly-phone.ly-b img{transition-delay:.1s}
+.ly-arrow{position:absolute;left:486px;top:330px;color:var(--violet)}
+.ly-disp{position:absolute;left:560px;top:640px;width:340px;background:var(--ink);color:#fff;padding:12px 16px;z-index:3}
+.ly-disp small{display:block;font:600 11px var(--f);margin-bottom:8px}
+.ly-disp div{display:flex;align-items:center;gap:10px;font-size:13px}
+.ly-disp span{flex:1;background:var(--violet);padding:4px 8px;font-weight:600}
+
+/* colour test specimen, steps 3 to 5 */
+.ly-spec{position:absolute;left:800px;top:120px;width:200px}
+.ly-spec .ly-sq{height:120px;display:flex;align-items:flex-end;padding:12px;color:#fff;font:600 15px var(--f)}
+.ly-spec .ly-ratio{margin:10px 0 0;font:600 64px/1 var(--f);letter-spacing:-.04em}
+.ly-spec .ly-cap{margin:6px 0 0;font-size:13px;color:var(--body);border-top:1px solid var(--ink);padding-top:6px}
+.ly-spec.ly-lay{transform:translateX(40px)}.ly-spec.ly-lay.on{transform:none}
+
+/* components: flat specimen tags, settle square */
+.ly-cmp{position:absolute;z-index:4;width:200px}
+.ly-cmp .ly-code{margin:6px 0 0;font:600 11px var(--f);color:var(--muted)}
+.ly-listen{display:flex;align-items:center;gap:10px;background:var(--violet);color:#fff;padding:12px 14px;font:600 15px var(--f)}
+.ly-park{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--ink);padding:8px 14px 8px 8px;font:600 14px var(--f)}
+.ly-park i{width:40px;height:40px;border-radius:11px;background:var(--violet);color:#fff;display:grid;place-items:center;font:700 19px var(--f);font-style:normal;position:relative}
+.ly-park i::after{content:'3';position:absolute;right:-7px;top:-7px;width:18px;height:18px;border-radius:50%;background:var(--ink);color:#fff;font:600 10px/18px var(--f);text-align:center}
+.ly-chips{display:flex;flex-direction:column;align-items:flex-start;gap:6px;background:#fff;border:1px solid var(--ink);padding:10px;font:700 13px var(--f)}
+.ly-chips span{background:var(--ink);color:#fff;padding:5px 10px;border-radius:7px}
+.ly-action{background:var(--ink);color:#fff;border-radius:14px;padding:14px 20px;font:600 16px var(--f);text-align:center}
+.ly-k1{left:0;top:200px;transform:translate(-120px,-40px) rotate(-14deg)}
+.ly-k2{left:0;top:320px;transform:translate(-120px,30px) rotate(12deg)}
+.ly-k3{left:800px;top:200px;transform:translate(120px,-30px) rotate(14deg)}
+.ly-k4{left:800px;top:380px;transform:translate(120px,40px) rotate(-8deg)}
+.ly-k2.on{transition-delay:.1s}.ly-k3.on{transition-delay:.2s}.ly-k4.on{transition-delay:.3s}
+
+/* context, step 0: index cards */
+.ly-ctx{position:absolute;inset:40px 0 0;transform:translateY(20px)}
+.ly-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ly-card{border:1px solid var(--ink);background:#fff;padding:12px 14px 16px;font-size:16px;line-height:1.4}
+.ly-card .ly-hd{display:flex;justify-content:space-between;font:600 12px var(--f);padding-bottom:8px;margin-bottom:10px;border-bottom:1px solid var(--ink)}
+.ly-card .ly-hd span:last-child{color:var(--violet)}
+.ly-card b{display:block;font-size:19px;margin-bottom:2px}
+.ly-talk{margin-top:20px;display:grid;grid-template-columns:1fr 1.25fr 1fr;border:1px solid var(--ink)}
+.ly-talk > div{padding:14px 16px 18px;display:flex;flex-direction:column;gap:12px}
+.ly-talk > div + div{border-left:1px solid var(--ink)}
+.ly-talk .ly-hd{display:flex;align-items:center;gap:10px;font:600 15px var(--f)}
+.ly-talk .ly-mk{width:26px;height:26px;border-radius:50%;background:var(--lime);color:var(--ink);display:grid;place-items:center;font:600 13px var(--f);flex:none}
+.ly-talk .ly-listen{border-radius:14px;height:56px;font-size:19px}.ly-talk .ly-listen .ly-wave{margin-left:auto}
+.ly-talk .ly-said{margin:0;font-size:16px;line-height:1.45;color:var(--body)}
+.ly-talk .ly-action{height:56px;display:grid;place-items:center;font-size:19px;padding:0}
+.ly-say{margin:34px 0 0}
+.ly-say blockquote{margin:0;font:600 46px/1.05 var(--f);letter-spacing:-.03em;text-indent:-.4em}
+.ly-say figcaption{margin-top:10px;font-size:14px;color:var(--body)}
+
+.ly-spine{position:absolute;right:-22px;top:0;bottom:0;margin:0;writing-mode:vertical-rl;transform:rotate(180deg);
+ font:500 11px var(--f);display:flex;justify-content:space-between;color:var(--muted)}
+
+/* foot row */
+.ly-foot{position:relative;flex:none;padding-bottom:12px}
+.ly-foot .ly-g12{padding-top:10px;font-size:12px;align-items:center}
+.ly-foot .ly-m{color:var(--muted)}
+.ly-skip{justify-self:end;display:inline-flex;align-items:center;gap:6px;font:600 13px var(--f);text-decoration:none;color:var(--ink)}
+.ly-skip:hover{color:var(--violet)}
+
+/* phone width: text on top, phones below */
+@media (max-width:900px){
+ .ly-g12{grid-template-columns:1fr 1fr;column-gap:16px}.ly-c2,.ly-c3,.ly-c4{grid-column:span 1}
+ .ly-meta .ly-hide,.ly-foot .ly-hide,.ly-cols,.ly-spine,.ly-legend,.ly-step p.ly-t,.ly-ctrl .ly-hint{display:none}
+ main.ly-g12{display:flex;flex-direction:column;gap:8px;padding:12px 0}
+ .ly-l{flex:none;gap:10px}.ly-r{flex:1;min-height:0}
+ .ly-num{font-size:64px}.ly-step h2{font-size:24px}.ly-sey{margin-top:4px}
+ .ly-spec,.ly-cmp{display:none}.ly-view{overflow:hidden}.ly-disp{left:330px}
+ .ly-ctx{inset:0 200px;width:600px}.ly-cards{display:none}.ly-talk{grid-template-columns:1fr;margin-top:0}.ly-talk > div + div{border-left:0;border-top:1px solid var(--ink)}
+ .ly-talk .ly-hd{font-size:22px}.ly-talk .ly-said{font-size:21px}.ly-talk .ly-listen,.ly-talk .ly-action{height:68px;font-size:25px}.ly-talk .ly-mk{width:36px;height:36px;font-size:17px}
+ .ly-say blockquote{font-size:42px}.ly-say figcaption{font-size:18px}
+}
+@media (prefers-reduced-motion:reduce){.ly-lay,.ly-phone img,.ly-step{transition:none!important}}
+
+/* ================= the Swiss site home, applied to the case (28.11) ================= */
+:root{--bg:#f3f3ef;--ink:#121212;--body:#2e2e2b;--muted:#5f5f5a;--line:#121212;--line2:#121212;--soft:#e7e7e1;
+ --sans:"Helvetica Neue",Helvetica,Arial,sans-serif;--f:var(--sans);--violet:#121212;--limesoft:#fff;--lilac:#e7e7e1}
+body{background:var(--bg);font:16px/1.45 var(--sans)}
+.in{max-width:1440px;padding-left:28px;padding-right:28px}
+.sw-top{position:sticky;top:0;z-index:60;background:var(--bg);padding:16px 28px 0;font:13px/1.4 var(--sans);color:var(--ink);max-width:1440px;margin:0 auto}
+.sw-bar{height:12px;background:var(--ink)}.sw-g{display:grid;grid-template-columns:2fr repeat(6,1fr)}
+.sw-g a{border:1px solid var(--ink);margin:0 -1px -1px 0;padding:9px 12px;text-decoration:none;color:inherit}
+.sw-g a:hover{background:var(--soft)}.sw-g a.on{background:var(--ink);color:var(--bg)}.sw-g i{font-style:normal;opacity:.55;margin-right:8px}
+.sw-b,.sw-cv{font-weight:600}.sw-cv{text-align:center}.sw-back{display:inline-block;margin:14px 0 4px;color:inherit;font-size:13px}
+.endbar{height:22px;background:var(--ink);margin-bottom:28px}
+/* type: Helvetica 500, as on the home page */
+h1,h2,h3,.stats b,.big p,.verdict p,.hmw p,.three b,.card h3,.ftext h3,.fl h3{font-family:var(--sans)!important;font-weight:500!important;letter-spacing:-.02em}
+h1{font-size:clamp(40px,5.2vw,76px);line-height:1;letter-spacing:-.035em}
+h2{font-size:clamp(28px,3.2vw,44px);line-height:1.05}
+.lead,.intro{color:var(--ink)}
+.k,.ey,.rowlabel,.lh,.col-h,th,.t,.verdict .k,.big .k,.hmw .k{font:400 13px var(--sans)!important;letter-spacing:0!important;text-transform:none!important;color:var(--muted)}
+.big .k,.verdict .k{color:#bdbdb6!important}
+/* hero */
+.hero{padding-block:40px 56px}
+.chip{border-radius:0;background:var(--ink);color:var(--bg);font:500 13px var(--sans);letter-spacing:0;text-transform:none;padding:6px 10px}
+.facts{gap:0;border-top:0}.facts>div{border:1px solid var(--ink);margin:0 -1px -1px 0;padding:12px 14px}
+.route{gap:0;margin-top:28px}.route li{margin:0 -1px -1px 0}
+.route a{border:1px solid var(--ink);border-radius:0;padding:9px 12px;font:400 13px var(--sans)}
+.route a:hover{background:var(--ink);color:var(--bg)}
+/* sections: number and label in the left quarter, like the home page */
+.sec{grid-template-columns:minmax(0,2fr) minmax(0,6fr);gap:0;border-top:0;padding-block:96px 0}
+.nr{font:400 13px var(--sans);letter-spacing:0;color:var(--ink);padding:12px 14px 0}
+.ey{margin-top:2px;padding:0 14px}
+.body>h2{padding:0 14px}.body>.intro{padding:0 14px;max-width:none}
+/* everything square, 1 px rules */
+.btn,.node,.tag,.t,.lose,.big,.hmw,.scope>div,.flow li,.legend i,.surf,.data,.data span,.sketch .dk,.box,.card,.ppl span,.verdict,.track,
+.cell,.always span:not(.lh),.fl4 .fx,.fl4 .st li,.more summary,.frame,.fnote,.mo span{border-radius:0!important}
+.node,.flow li,.surf,.card,.data span,.always span:not(.lh),.fl4 .st li,.more summary,.hmw{border-width:1px}
+.stats{gap:0}.stats div{border:1px solid var(--ink);margin:0 -1px -1px 0;padding:12px 14px}
+.stats b{font-size:clamp(36px,4vw,56px);letter-spacing:-.03em}
+.node.y{background:var(--ink)}.link.bad,.link.bad i{color:#b3261e}.link.bad i{background:repeating-linear-gradient(90deg,#b3261e 0 6px,transparent 6px 11px)}
+.kinds{border:0;gap:0;padding:0}.kinds li{border:1px solid var(--ink);margin:0 -1px -1px 0;padding:12px 14px}
+.trust{gap:0}.box{border:1px solid var(--ink)!important;margin:0 -1px -1px 0}.six{background:var(--soft)}
+.ppl span{background:var(--bg)}.ppl span.hl{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.t.src{background:var(--ink);color:var(--bg)!important}.t.fnd{background:var(--soft);color:var(--ink)!important}.t.hyp{background:transparent;color:var(--ink)!important;border:1px dashed var(--ink)}
+.verdict,.big{margin-top:0;border:1px solid var(--ink)}
+.lanes{gap:0}.lanes>*{margin:0 -1px -1px 0}
+.cell{border:1px solid var(--ink)}.cell.d{background:#fff}.cell.f{background:var(--soft)}
+.mo{padding:12px 14px;border:1px solid var(--ink)}.mo span{background:var(--ink)}
+.lh{padding:12px 14px;border:1px solid var(--ink);align-self:stretch;color:var(--ink)!important}
+.always{gap:0;margin-top:-1px}.always .lh{width:120px;margin:0 -1px 0 0}.always span:not(.lh){border:1px solid var(--ink);margin:0 -1px 0 0;padding:12px 14px;font:400 14px var(--sans)}
+.note{padding:12px 14px;margin:0}
+.big{padding:24px 28px;margin-top:28px}.hmw{margin-top:-1px;border-color:var(--ink)}.hmw .k{color:var(--muted)!important}
+.fl4{gap:0}.fl4>*{margin:0 -1px -1px 0}.fl4 .fx{border:1px solid var(--ink)}
+.fl4 .t0{background:transparent;color:var(--muted)}.fl4 .t1{background:var(--ink);color:var(--bg);font-weight:500}
+.fl4 .st{padding:10px 12px;border:1px solid var(--ink)}.fl4 .st li{border-color:var(--ink)}.fl4 .st li:last-child{background:var(--ink);color:var(--bg)}
+.more{border-top:0}.more summary{border:1px solid var(--ink)}
+.flow li.g{border-color:var(--ink)}.flow li.g b{color:var(--ink)}.flow li.h{background:var(--soft);border-color:var(--ink)}.flow li.a{background:#fff;border-color:var(--ink)}
+.flow.today li{border-color:#bdbdb6}.flow.today li b{color:#b3261e}.branch span::before{color:var(--ink)}
+.arch{gap:0}.surf{margin:0 -1px -1px 0}.surf .hd{background:var(--ink)!important;color:var(--bg)!important}.surf .hd span{color:#bdbdb6!important}
+.surf.d .hd{background:#fff!important;color:var(--ink)!important;border-bottom:1px solid var(--ink)}.surf.d .hd span{color:var(--muted)!important}
+.surf.g .hd{background:var(--soft)!important;color:var(--ink)!important;border-bottom:1px solid var(--ink)}.surf.g .hd span{color:var(--muted)!important}
+.surf li,.card li,.lose li,.track li{border-color:rgba(18,18,18,.25)!important}
+.data{background:transparent;border:1px solid var(--ink);margin-top:-1px}.data span{background:transparent;border-color:var(--ink)}
+td,th{border-bottom:1px solid var(--ink)}th{color:var(--muted)}
+.scen{border-top:1px solid var(--ink)}.frame{border:1px solid var(--ink)}.fnote{background:var(--soft)}
+.track{background:transparent;border:1px solid var(--ink);margin:0 -1px -1px 0}.tracks{gap:0}
+.three{gap:0}.three div{border:1px solid var(--ink);margin:0 -1px -1px 0;padding:12px 14px}
+footer{border-top:0;padding-block:96px 12px;font-size:13px}
+@media(min-width:901px){.rail{top:118px}}
+section{scroll-margin-top:110px}
+.cell::before,.fl4 .fx[data-k]::before{font:400 12px var(--sans)!important;letter-spacing:0!important;text-transform:none!important;color:var(--muted)}
+/* the layers block sits in the same grid and ground */
+#ly-layers{--ink:#121212;--body:#2e2e2b;--muted:#5f5f5a;--violet:#5b21b6;--lime:#c6f05e;--line:rgba(18,18,18,.08);--f:var(--sans);--ease:cubic-bezier(.22,.61,.36,1);margin-top:28px}
+#ly-layers .ly-pin{top:var(--hh,0px);height:calc(100svh - var(--hh,0px));background:var(--bg)}
+#ly-layers .ly-frame{max-width:1440px;padding:0 28px}
+#ly-layers .ly-g12{grid-template-columns:repeat(8,minmax(0,1fr))}
+#ly-layers .ly-cols{inset:0 28px}#ly-layers .ly-cols div:nth-child(n+9){display:none}
+#ly-layers .ly-c2,#ly-layers .ly-c3,#ly-layers .ly-c4{grid-column:span 2}
+#ly-layers .ly-l{grid-column:1 / span 3}#ly-layers .ly-r{grid-column:4 / span 5}
+#ly-layers .ly-rule4{height:12px}
+#ly-layers .ly-num,#ly-layers .ly-step h2{font-weight:500}
+#ly-layers .ly-card,#ly-layers .ly-park,#ly-layers .ly-chips{background:#fff}
+#ly-layers .ly-ctrl button{background:var(--bg)}#ly-layers .ly-ctrl button#ly-next{background:var(--ink)}
+.fpin{box-shadow:0 0 0 2px #fff}
+@media(max-width:900px){
+ .in{padding-left:14px;padding-right:14px}.sw-top{padding:10px 14px 0}.sw-g{grid-template-columns:1fr}.sw-g a:not(.sw-b){display:none}
+ .sec{grid-template-columns:1fr;padding-top:64px}.rail{display:flex;gap:10px;align-items:baseline;padding:0 0 8px}.nr,.ey{padding:0}
+ .body>h2,.body>.intro{padding:0}
+ #ly-layers .ly-g12{grid-template-columns:1fr 1fr}#ly-layers .ly-c2,#ly-layers .ly-c3,#ly-layers .ly-c4{grid-column:span 1}#ly-layers .ly-frame{padding:0 14px}}
+
+/* ================= v3: the Transpo space inside the site shell ================= */
+:root{--violet:#5b21b6;--limesoft:#f0f9d8;--lilac:#f1ecfd;--tp:#16131d}
+.cover{background:var(--tp);color:#fff;margin-top:8px}
+.cover-g{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,3fr);gap:48px;align-items:end;padding-block:56px 0}
+.cover-t{padding-bottom:56px;min-width:0}
+.cover .chip{background:#c6f05e;color:var(--tp)}
+.cover .prod,.cover .prod b{color:#fff}.cover .lead{color:#d9d5e3}
+.cover .facts>div{border-color:rgba(255,255,255,.35)}.cover .facts .k{color:#a9a3b8!important}
+.cover .route a{border-color:rgba(255,255,255,.35)}.cover .route a:hover{background:#fff;color:var(--tp)}
+.cover-ph{margin:0;align-self:end;justify-self:center;width:min(100%,330px);border:8px solid #000;border-bottom:0;border-radius:40px 40px 0 0;overflow:hidden;height:520px;background:#fff}
+.cover-ph img{width:100%;height:auto}
+/* project accents */
+.nr{color:var(--violet)!important;font-weight:500!important}
+.stats b{color:var(--violet)}
+.cell.d{background:var(--limesoft)}.cell.f{background:var(--lilac)}
+.lh.d{color:#3d5a00!important}.lh.f,.lh.v{color:var(--violet)!important}
+.mo span{background:var(--violet)}
+.fl4 .t1{background:var(--tp)}
+.fl4 .st li:last-child{background:var(--violet);border-color:var(--violet);color:#fff}
+.t.fnd{background:var(--lilac);color:var(--violet)!important}
+.surf .hd{background:var(--tp)!important}
+.surf.d .hd{background:#c6f05e!important;color:var(--tp)!important}.surf.d .hd span{color:#3d5a00!important}
+.surf.g .hd{background:var(--lilac)!important;color:var(--tp)!important}.surf.g .hd span{color:var(--violet)!important}
+.big,.verdict{background:var(--tp)}.big .k,.verdict .k{color:#c6f05e!important}
+.hmw{border-color:var(--violet)}.hmw .k{color:var(--violet)!important}
+.ppl span.hl{box-shadow:inset 0 0 0 2px var(--violet)}
+.node.y{background:var(--tp)}
+@media(max-width:900px){.cover-g{grid-template-columns:1fr;gap:24px;padding-top:32px}.cover-t{padding-bottom:0}.cover-ph{height:380px;width:min(100%,260px)}}
+
+/* ---- 06 Screens in the page language ---- */
+.lx{position:relative;height:calc(var(--n) * 75vh + 100vh);margin-top:28px;--violet:#5b21b6;--ink:#121212;--lime:#c6f05e;--f:var(--sans);--ease:cubic-bezier(.22,.61,.36,1)}
+.lx-pin{position:sticky;top:var(--hh,0px);height:calc(100svh - var(--hh,0px));overflow:hidden}
+.lx-g{height:100%;display:grid;grid-template-columns:minmax(0,2fr) minmax(0,6fr);padding-block:20px 24px}
+.lx-side{display:flex;flex-direction:column;gap:12px;padding-right:24px;min-width:0}
+.lx-count{margin:0;padding:0 14px;font-size:13px;color:var(--violet);font-variant-numeric:tabular-nums}
+.lx-legend{list-style:none;margin:0;padding:0}
+.lx-legend li{margin:0 0 -1px}
+.lx-legend button{width:100%;display:flex;gap:8px;align-items:center;border:1px solid var(--ink);background:transparent;padding:9px 12px;font:13px var(--sans);color:var(--ink);text-align:left;cursor:pointer}
+.lx-legend button i{font-style:normal;opacity:.55;font-variant-numeric:tabular-nums}
+.lx-legend button:hover{background:var(--soft)}
+.lx-legend li.cur button{background:var(--violet);border-color:var(--violet);color:#fff;position:relative;z-index:1}
+.lx-legend li.cur button i{opacity:.75}
+.lx-ctrl{display:flex;gap:0;margin-top:4px}
+.lx-ctrl button{width:44px;height:44px;border:1px solid var(--ink);margin-right:-1px;background:transparent;color:var(--ink);display:grid;place-items:center;cursor:pointer}
+.lx-ctrl button:disabled{opacity:.3;cursor:default}
+.lx-hint{margin:0;font-size:13px;color:var(--muted)}
+.lx-skip{font-size:13px;color:var(--ink)}
+.lx-main{display:flex;flex-direction:column;min-width:0;min-height:0}
+.lx-texts{display:grid;padding:0 14px;flex:none}
+.lx-t{grid-area:1/1;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s var(--ease),transform .2s var(--ease),visibility 0s linear .2s}
+.lx-t.cur{opacity:1;visibility:visible;transform:none;transition:opacity .4s var(--ease) .1s,transform .4s var(--ease) .1s,visibility 0s}
+.lx-k{margin:0 0 6px;font-size:13px;color:var(--violet)}
+.lx-t h3{margin:0 0 8px;font:500 clamp(24px,2.5vw,36px)/1.08 var(--sans)!important;letter-spacing:-.02em}
+.lx-p{margin:0;max-width:640px;font-size:16px;line-height:1.45;color:var(--body)}
+.lx-view{position:relative;flex:1;min-height:0;margin-top:12px}
+.lx .ly-board{position:absolute;left:50%;top:50%;width:1000px;height:720px;transform-origin:50% 50%;transform:translate(-50%,-50%) scale(var(--s,.8))}
+/* board pieces in the page language: Helvetica 500, square cells, 1 px rules */
+.lx .ly-tag{font:500 14px var(--sans);padding:8px 12px}
+.lx .ly-tag.ly-v{background:var(--violet)}
+.lx .ly-card{border:1px solid var(--ink);background:#fff;font-family:var(--sans)}
+.lx .ly-card .ly-hd{border-bottom:0;padding-bottom:0;margin-bottom:6px!important;font:400 13px var(--sans);color:var(--muted)}
+.lx .ly-card .ly-hd span:last-child{color:var(--violet)}
+.lx .ly-card b{font-weight:500}
+.lx .ly-talk{border:1px solid var(--ink);background:#fff}.lx .ly-talk>div+div{border-left:1px solid var(--ink)}
+.lx .ly-talk .ly-hd{font:500 15px var(--sans)}
+.lx .ly-say blockquote{font:500 44px/1.05 var(--sans);letter-spacing:-.02em}
+.lx .ly-disp{border:0;font-family:var(--sans)}
+.lx .ly-spec .ly-ratio{font:500 64px/1 var(--sans)}
+.lx .ly-spec .ly-cap{border-top:1px solid var(--ink)}
+.lx .ly-cmp .ly-code{font:400 12px var(--sans);color:var(--muted)}
+.lx .ly-park,.lx .ly-chips{background:#fff;border:1px solid var(--ink)}
+@media(max-width:900px){
+ .lx-g{grid-template-columns:1fr;grid-template-rows:auto auto minmax(0,1fr);padding-block:12px}
+ .lx-side{flex-direction:row;align-items:center;gap:10px;padding:0;flex-wrap:wrap}.lx-legend,.lx-hint{display:none}.lx-count{padding:0}
+ .lx-main{display:contents}.lx-texts{padding:0;margin-top:10px}.lx-p{display:none}.lx-t h3{font-size:22px!important}
+ .lx-view{margin-top:8px;overflow:hidden}.lx .ly-spec,.lx .ly-cmp{display:none}.lx .ly-disp{left:330px}
+ .lx .ly-ctx{inset:0 200px;width:600px}.lx .ly-cards{display:none}.lx .ly-talk{grid-template-columns:1fr;margin-top:0}.lx .ly-talk>div+div{border-left:0;border-top:1px solid var(--ink)}
+ .lx .ly-talk .ly-hd{font-size:22px}.lx .ly-said{font-size:21px}.lx .ly-talk .ly-listen,.lx .ly-talk .ly-action{height:68px;font-size:25px}.lx .ly-talk .ly-mk{width:36px;height:36px;font-size:17px}
+ .lx .ly-say blockquote{font-size:42px}.lx .ly-say figcaption{font-size:18px}}
+
+/* ---- slim case header ---- */
+.cs-top{position:sticky;top:0;z-index:60;background:var(--bg);border-bottom:1px solid var(--ink)}
+.cs-in{max-width:1440px;margin:0 auto;padding:14px 28px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;font:13px/1.3 var(--sans)}
+.cs-name{font-weight:600;text-decoration:none}
+.cs-case{display:inline-flex;align-items:center;gap:8px;font-weight:500}
+.cs-case i{width:10px;height:10px;background:#c6f05e;box-shadow:4px 4px 0 #5b21b6;margin-right:4px}
+.cs-nav{justify-self:end;display:flex;gap:20px}.cs-nav a{text-decoration:none}.cs-nav a:hover{text-decoration:underline}
+.cover{margin-top:0}
+@media(min-width:901px){.rail{top:72px!important}}section{scroll-margin-top:60px}
+
+/* ---- One car, one record: horizontal story ---- */
+.st{position:relative;height:calc(var(--n) * 80vh + 100vh);background:#16131d;color:#fff;margin-top:96px;
+ --tp:#16131d;--vi:#5b21b6;--li:#c6f05e;--sw:520px}
+.st-pin{position:sticky;top:var(--hh,0px);height:calc(100svh - var(--hh,0px));overflow:hidden;display:grid;
+ grid-template-rows:auto minmax(0,1fr);grid-template-columns:minmax(0,1fr)}.st-track{min-width:0}
+.st-head{max-width:1440px;width:100%;margin:0 auto;padding:22px 28px 0;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:24px;text-align:left}.st-head>div{justify-self:start}
+.st-ey{margin:0 0 4px;font:13px var(--sans);color:var(--li)}
+.st-head h2{margin:0;font:500 clamp(28px,3vw,44px)/1.05 var(--sans)!important;color:#fff;letter-spacing:-.02em}
+.st-sub{margin:0;max-width:360px;font-size:14px;color:#bdb7cc;text-align:right}
+.st-lanes{position:absolute;left:28px;top:calc(var(--hh,0px)*0 + 112px);bottom:0;pointer-events:none;z-index:2}
+.st-lanes span{position:absolute;left:-28px;padding:10px 6px 10px 10px;background:#16131d;font:12px var(--sans);color:#bdb7cc;writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap}
+.st-ld{top:20px}.st-lf{bottom:60px}
+.st-rec{display:none}
+.st-rec-fill{position:absolute;left:0;top:0;bottom:0;width:8%;background:var(--li);box-shadow:0 0 18px rgba(198,240,94,.6);transition:width .15s linear}
+.st-rec-t{position:absolute;right:28px;top:-22px;font:12px var(--sans);color:var(--li)}
+.st-track{display:flex;gap:0;padding:0 28px 0 76px;height:100%;will-change:transform;position:relative;z-index:2}
+.st-sc{flex:none;width:var(--sw);height:100%;display:grid;grid-template-rows:auto auto minmax(0,1fr) 28px 168px;padding:18px 32px 20px 0;opacity:.35;transition:opacity .5s}
+.st-sc.on{opacity:1}
+.st-time{margin:0;font:500 13px var(--sans);color:var(--li);font-variant-numeric:tabular-nums}
+.st-k{margin:2px 0 10px;font:500 20px var(--sans);letter-spacing:-.01em}
+.st-d{display:flex;gap:18px;align-items:flex-end;min-height:0}
+.st-line{margin:0;font-size:15px;line-height:1.45;color:#e4e0ec;max-width:230px}
+.st-node{position:relative}.st-node::before{content:'';position:absolute;left:0;right:-1px;top:calc(50% - 1px);height:2px;background:rgba(255,255,255,.16)}.st-sc.on .st-node::before{background:var(--li);box-shadow:0 0 14px rgba(198,240,94,.5)}.st-sc:first-child .st-node::after{content:'Shift record';position:absolute;left:0;top:-4px;font:12px var(--sans);color:var(--li)}.st-node i{position:absolute;left:84px;top:calc(50% - 7px);width:14px;height:14px;border-radius:50%;background:#16131d;border:2px solid rgba(255,255,255,.4);transition:all .4s}
+.st-sc.on .st-node i{background:var(--li);border-color:var(--li);box-shadow:0 0 0 6px rgba(198,240,94,.18)}
+.st-f{display:flex;gap:18px;align-items:flex-start}
+/* phone */
+.st-ph{flex:none;width:184px;aspect-ratio:780/1688;max-height:100%;border:6px solid #000;border-radius:28px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.16),0 24px 50px rgba(0,0,0,.45);transform:translateY(16px);transition:transform .6s cubic-bezier(.2,.9,.25,1)}
+.st-sc.on .st-ph{transform:none}
+.st-ph img{width:100%;height:auto;display:block}
+.st-ui{color:#16131d;padding:10px 10px 12px;display:flex;flex-direction:column;gap:7px;font-family:'Space Grotesk',var(--sans)}
+.u-time{margin:0;font-size:8px}.u-t{margin:2px 0 0;font:700 15px/1.1 'Space Grotesk',var(--sans)}
+.u-listen{display:flex;align-items:center;gap:6px;height:28px;padding:0 9px;border-radius:9px;background:var(--vi);color:#fff;font:600 11px 'Space Grotesk',var(--sans)}
+.u-w{margin-left:auto;display:flex;gap:2px;align-items:center}.u-w b{width:2px;height:8px;background:#fff;border-radius:1px}.u-w b:nth-child(2){height:12px}.u-w b:nth-child(3){height:6px}.u-w b:nth-child(4){height:11px}
+.u-row{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ebe7f2;padding:6px 2px;font-size:10.5px}
+.u-row b{font-size:10px;padding:2px 6px;border-radius:5px;background:#16131d;color:#fff}.u-row b.ok{background:#16131d}
+.u-note{margin:2px 0 0;font-size:10px;line-height:1.35;color:#4a4655}
+.u-card{border:1.5px solid #16131d;border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:2px;font-size:10px}.u-card b{font-size:11.5px}
+.u-btn{margin-top:auto;height:34px;border-radius:10px;background:#16131d;color:#fff;display:grid;place-items:center;font:600 12px 'Space Grotesk',var(--sans)}
+/* fleet console card */
+.cc{flex:none;width:250px;background:#fff;color:#16131d;border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:8px;font-family:'Space Grotesk',var(--sans);box-shadow:0 14px 30px rgba(0,0,0,.35);border-left:5px solid #16131d;transform:translateY(-12px);transition:transform .6s cubic-bezier(.2,.9,.25,1)}
+.st-sc.on .cc{transform:none}
+.cc-h{margin:0;font:700 12px 'Space Grotesk',var(--sans)}
+.cc-r{display:flex;justify-content:space-between;align-items:center;gap:8px;border-top:1px solid #ebe7f2;padding-top:7px}
+.cc-r b{display:block;font-size:11.5px}.cc-r span{display:block;font-size:10px;color:#4a4655;line-height:1.35}
+.cc-r em{font-style:normal;font-size:10px;font-weight:700;padding:3px 7px;border-radius:6px;white-space:nowrap}
+em.lime{background:#c6f05e;color:#16131d}em.vio{background:#ede5fd;color:#5b21b6}em.red{background:#fde2df;color:#9f1d2a}
+.cc-btn{height:28px;border-radius:7px;background:#16131d;color:#fff;display:grid;place-items:center;font:600 11px 'Space Grotesk',var(--sans)}
+.cc-bar{display:flex;align-items:center;gap:8px;font-size:11px}.cc-car{font-weight:700;white-space:nowrap}
+.cc-line{flex:1;display:flex;align-items:center;gap:6px;background:#c6f05e;border-radius:5px;padding:5px 8px;font-weight:600;font-size:10.5px}
+.cc-line i{width:7px;height:7px;border-radius:50%;background:#16131d}
+.cc-s{margin:0;font-size:10px;color:#4a4655}
+.st-foot{position:absolute;right:28px;bottom:10px;margin:0;font-size:12px;color:#8f8a9c;z-index:3}
+@media(max-width:900px){
+ .cs-in{grid-template-columns:1fr auto;padding:12px 14px}.cs-case{display:none}.cs-nav{gap:12px}
+ .st{--sw:86vw}.st-head{padding:14px 14px 0;display:block}.st-head h2{font-size:26px!important}.st-sub{margin-top:4px}.st-ph{flex:none;width:118px}.u-t{font-size:12px}.u-row{font-size:9px}.st-sub{text-align:left;font-size:13px}
+ .st-track{padding:0 14px 0 34px}.st-lanes{left:12px}.st-ph{width:132px;border-width:5px;border-radius:22px}.st-line{font-size:13px;max-width:none}
+ .cc{width:52vw}.st-sc{grid-template-rows:auto auto minmax(0,1fr) 28px 190px}.st-f{flex-direction:column;gap:8px}.st-f .st-line{font-size:12px}.st-sc{padding-right:18px}.st-node i{left:58px}}
+@media (prefers-reduced-motion:reduce){.st-ph,.cc,.st-sc{transition:none}}
+
+/* labels = annotations: lime, never the UI colours */
+.lx .ly-tag,.lx .ly-tag.ly-v{background:#c6f05e!important;color:#16131d!important;font:500 14px var(--sans)}
+.lx .ly-disp small{color:#c6f05e}
+/* context layer: facts as text, how it works in one Transpo panel, the quote apart */
+.lx .ly-cards{gap:28px}
+.lx .ly-card{border:0!important;border-top:2px solid var(--ink)!important;background:transparent!important;padding:12px 0 0!important}
+.lx .ly-card .ly-hd{display:flex!important;margin:0 0 8px!important;padding:0!important}
+.lx .ly-card .ly-hd span:first-child{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#c6f05e;color:#16131d;font:600 11px var(--sans);font-size:0}
+.lx .ly-card .ly-hd span:first-child::after{font-size:12px}
+.lx .ly-card:nth-child(1) .ly-hd span:first-child::after{content:'1'}.lx .ly-card:nth-child(2) .ly-hd span:first-child::after{content:'2'}.lx .ly-card:nth-child(3) .ly-hd span:first-child::after{content:'3'}
+.lx .ly-card .ly-hd span:last-child{display:none}
+.lx .ly-card b{font:500 22px/1.15 var(--sans)!important;margin-bottom:6px!important}
+.lx .ly-card{font-size:16px;color:var(--body)}
+.lx .ly-talk{margin-top:34px!important;border:0!important;background:#f1ecfd!important;padding:18px 6px!important}
+.lx .ly-talk>div+div{border-left:1px solid rgba(91,33,182,.25)!important}
+.lx .ly-talk::before{content:'How a screen talks';position:absolute;margin:-40px 0 0 0;font:500 13px var(--sans);color:#5b21b6}
+.lx .ly-talk{position:relative}
+.lx .ly-talk .ly-mk{background:#c6f05e}
+.lx .ly-say{margin-top:30px!important}
+@media(max-width:900px){.lx .ly-talk::before{display:none}.lx .ly-talk>div+div{border-left:0!important;border-top:1px solid rgba(91,33,182,.25)!important}}
+
+.lx .ly-card .ly-hd{display:none!important}
+.lx .ly-talk::before{position:static!important;margin:0!important;grid-column:1/-1;padding:0 10px 4px;display:block}
+.lx .ly-talk{padding-top:14px!important}
+</style>
+</head>
+<body>
+<header class="cs-top"><div class="cs-in"><a class="cs-name" href="../index.html#top">Irina Mumrikova</a><span class="cs-case"><i></i>Transpo</span><nav class="cs-nav"><a href="../index.html#work">← All work</a><a href="../index.html">Next case →</a></nav></div></header>
+<main>
+<section class="cover"><div class="in cover-g"><div class="cover-t">
+  <div class="label"><span class="chip">Case</span><span class="prod"><span class="logo"></span><b>Transpo</b>mobility start-up, Abidjan, 2026</span></div>
+  <h1>Connecting drivers and fleets in a market without a register</h1>
+  <p class="lead">Transpo is a start-up for car-rental fleets that work with ride-hailing apps in Abidjan. This case shows the discovery before the build: what fleets and drivers lose today, the rules we decided on, and the flows and architecture that follow from them.</p>
+  <div class="facts">
+    <div><div class="k">My role</div><div class="v">Product design: research, problem framing, decisions, information architecture, flows</div></div>
+    <div><div class="k">Stage</div><div class="v">Discovery, May to November 2026, before the build</div></div>
+    <div><div class="k">Users</div><div class="v">Drivers, fleet owners, dispatchers, mechanics</div></div>
+    <div><div class="k">Tools</div><div class="v">Figma, FigJam, Mermaid flows, AI agents (Claude Code)</div></div>
+  </div>
+  <ul class="route"><li><a href="#s1">01 Market</a></li><li><a href="#s2">02 People</a></li><li><a href="#s3">03 Findings</a></li><li><a href="#s4">04 Moments</a></li><li><a href="#s5">05 Architecture</a></li><li><a href="#s6">06 Screens</a></li><li><a href="#s7">07 Fleet side</a></li><li><a href="#story">One day</a></li><li><a href="#s8">08 Next</a></li></ul>
+</div><figure class="cover-ph"><img src="layers-img/find_6b.webp" width="780" height="1688" alt="Transpo driver app, find a car: the nearest car park and one big Book button"></figure></div></section>
+<section class="in sec " id="s1"><div class="rail"><span class="nr">01</span><span class="ey">The market</span></div><div class="body"><h2>Apps match passengers and drivers. Nobody matches drivers and cars.</h2><p class="intro">In Abidjan, almost every ride-hailing car belongs to a fleet, and drivers rent them by the day. The link between passenger and driver is an app. The link between driver and fleet is a phone call, a chat and an office.</p><div class="stats"><div><b>25,000</b><span>cars on Yango in Abidjan</span></div><div><b>~150</b><span>partner fleets own them</span></div><div><b>0</b><span>cars owned by Yango itself</span></div><div><b>18%</b><span>commission per ride, 15% Yango, 3% the fleet</span></div></div><div class="chain"><div class="node">Passengers<span>want a ride</span></div><div class="link"><i></i>one app</div><div class="node y">Yango<span>matches by zone</span></div><div class="link"><i></i>one app</div><div class="node">Drivers<span>rent a car every day</span></div><div class="link bad"><i></i>calls, chats, office, paper</div><div class="node">Fleets<span>own the cars</span></div></div><p class="note">Yango Côte d’Ivoire: Jeune Afrique, 19 Dec 2024; Digital Mag, 23 Aug 2025 («nous, on a zéro véhicule»).</p></div></section>
+<section class="in sec" id="s2"><div class="rail"><span class="nr">02</span><span class="ey">The people</span></div><div class="body">
+<h2>Driver proto-personas, built before the field</h2>
+<p class="intro">No interviews in Abidjan yet. So every fact about a driver carries a mark of where it comes from, and the personas themselves are marked as what they are.</p>
+<ul class="kinds">
+    <li><span class="t src">Primary</span><p><b>First hand.</b> Founders and a fleet operator; the law on fines.</p></li>
+    <li><span class="t fnd">Secondary</span><p><b>Studies.</b> Ethnography of Abidjan drivers; competitor reviews.</p></li>
+    <li><span class="t hyp">Hypothesis</span><p><b>Our drafts.</b> Proto-personas and simulated interviews.</p></li>
+  </ul>
+
+  <div class="trust">
+    <div class="box card">
+      <p class="col-h">One proto-persona, fact by fact</p>
+      <h3>Seydou</h3>
+      <p class="role">Grinder, shares one car with a night driver</p>
+      <ul>
+        <li><span class="t fnd">Secondary</span>Rents the car by the day, pays small repairs himself.</li>
+        <li><span class="t fnd">Secondary</span>Two drivers per car; owner and driver distrust each other.</li>
+        <li><span class="t src">Primary</span>Reads little.</li>
+        <li><span class="t hyp">Hypothesis</span>Which language the voice should speak.</li>
+      </ul>
+    </div>
+    <div class="box six">
+      <p class="col-h">6 driver proto-personas <span class="t hyp">Hypothesis</span></p>
+      <div class="ppl">
+        <span class="hl"><b>Seydou</b>grinder</span>
+        <span><b>Bakary</b>fleet driver</span>
+        <span><b>Amadou</b>25 years at the wheel</span>
+        <span><b>Ibrahima</b>part-time, cash</span>
+        <span><b>Moussa</b>casual, student</span>
+        <span><b>Yao</b>casual, a few hours</span>
+      </div>
+      <p class="simline">Stress-tested in 5 rounds of simulated interviews: 78 insights, 23 flow changes. Not evidence.</p>
+    </div>
+  </div>
+
+  
+<div class="verdict"><span class="k">Why hypotheses</span><p>The proto-personas stand on primary and secondary facts, and stay hypotheses on purpose: they tell us what to ask in the field, not what the field will say.</p></div>
+</div></section>
+<section class="in sec" id="s3"><div class="rail"><span class="nr">03</span><span class="ey">What we found</span></div><div class="body">
+<h2>Both sides lose at the same four moments</h2>
+<p class="intro">There is no record. Every new driver, every handover and every fine is negotiated from zero.</p>
+<div class="lanes">
+  <div class="lh"></div><div class="mo"><span>1</span>Joining a fleet</div><div class="mo"><span>2</span>Taking a car</div><div class="mo"><span>3</span>Handing over</div><div class="mo"><span>4</span>A fine, weeks later</div>
+  <div class="lh d">Drivers lose</div><div class="cell d" data-mo="Joining a fleet"><b>A tour to find a car</b>Chats, calls and an office at 8:00, again at every fleet.</div><div class="cell d" data-mo="Taking a car"><b>Fear of being stopped</b>Competitors cut the engine while driving when rent is late.</div><div class="cell d" data-mo="Handing over"><b>Arguments at the handover</b>Fuel and scratches between co-drivers, settled by phone.</div><div class="cell d" data-mo="A fine, weeks later"><b>Blamed for someone else</b>An old fine or a co-driver’s debt lands on the next driver.</div>
+  <div class="lh f">Fleets lose</div><div class="cell f" data-mo="Joining a fleet"><b>Hiring is paid and noisy</b>Ads, chats, a call centre, then 3 to 4 hours of paper per driver.</div><div class="cell f" data-mo="Taking a car"><b>The car waits</b>A new driver about every 10 days, and the loop starts again.</div><div class="cell f" data-mo="Handing over"><b>Handover runs through people</b>Keys, office hours, the dispatcher arbitrates by phone.</div><div class="cell f" data-mo="A fine, weeks later"><b>The fine comes 15 days later</b>If the fleet cannot name the driver, the fleet pays.</div>
+</div>
+<div class="always"><span class="lh d">All day, drivers</span><span>Reading is hard</span><span>Strong sun, cheap screens</span><span>Cash, and good reasons to distrust e-money</span></div>
+<div class="always"><span class="lh f">All day, fleets</span><span>No shared record of drivers</span></div>
+<p class="note">Founders and a fleet operator (Sep to Nov 2026); baravtc.ci (20 Nov); Decree 2021-444 art. 8, Ordinance 2021-432 art. 16, 17; ethnography; competitor reviews.</p>
+<div class="big"><span class="k">The insight</span><p>Both sides lose when a car changes hands. Today every handover is a negotiation without a record.</p></div>
+<div class="hmw"><span class="k">How might we</span><p>hand a car to a checked driver as easily as an app hands a ride to a passenger, and keep a fair record of who had it?</p></div>
+</div></section>
+<section class="in sec" id="s4"><div class="rail"><span class="nr">04</span><span class="ey">Key flows</span></div><div class="body">
+<h2>Four moments where a car changes hands</h2>
+<p class="intro">Each flow replaces a phone call, an office visit or an argument.</p>
+<div class="lanes fl4">
+  <div class="lh"></div><div class="mo" style="--o:0"><span>1</span>Joining a fleet</div><div class="mo" style="--o:4"><span>2</span>Taking a car</div><div class="mo" style="--o:8"><span>3</span>Handing over</div><div class="mo" style="--o:12"><span>4</span>A fine, weeks later</div>
+  <div class="lh">Today</div><div class="fx t0" style="--o:1" data-k="Today">Hours of paper in an office, at every fleet.</div><div class="fx t0" style="--o:5" data-k="Today">Calls, an office, keys.</div><div class="fx t0" style="--o:9" data-k="Today">Fuel and scratches argued by phone.</div><div class="fx t0" style="--o:13" data-k="Today">The fleet pays if it cannot name the driver.</div>
+  <div class="lh v">With Transpo</div><div class="fx t1" style="--o:2" data-k="With Transpo">Register on the phone, one office visit for the fingerprint.</div><div class="fx t1" style="--o:6" data-k="With Transpo">Book the nearest car; the app opens the door, a finger starts the engine.</div><div class="fx t1" style="--o:10" data-k="With Transpo">Both drivers check the car with photos and confirm with a finger.</div><div class="fx t1" style="--o:14" data-k="With Transpo">Matched to the shift; the fleet names the driver in one click.</div>
+  <div class="lh">Steps</div><div class="fx st" style="--o:3"><ol><li>Register</li><li>ID photos</li><li>Consent</li><li>Check in 4 h</li><li>Fingerprint</li></ol></div><div class="fx st" style="--o:7"><ol><li>Car park</li><li>Book</li><li>Walk</li><li>Door</li><li>Finger</li></ol></div><div class="fx st" style="--o:11"><ol><li>End shift</li><li>Photos</li><li>B checks</li><li>Both fingers</li></ol></div><div class="fx st" style="--o:15"><ol><li>Fine</li><li>Match shift</li><li>Who started</li><li>Fleet names</li><li>Driver hears</li></ol></div>
+</div>
+<details class="more"><summary>See every step, gate and fallback</summary><div class="morebody"><div class="legend"><span><i></i>Step</span><span><i style="border-style:dashed;border-color:#7c3aed"></i>Gate</span><span><i style="background:#f0f9d8;border-color:#9bbf2c"></i>Runs on its own</span><span><i style="background:#f1ecfd;border-color:#7c3aed"></i>A person decides</span><span><i style="background:#16131d"></i>Outcome</span></div><div class="fl"><h3>1. Onboarding</h3><p class="sub">From hours in an office at every fleet to one visit, once.</p><div class="rowlabel">Today</div><ol class="flow today"><li class="s"><b>Ad, chat, call</b><span>paid by the fleet</span></li><li class="s"><b>Office at 8:00</b><span>copies of ID and licence</span></li><li class="s"><b>Test drive</b><span>many fail</span></li><li class="s"><b>3 to 4 h of paper</b></li><li class="s"><b>Keys</b></li><li class="s"><b>Next fleet</b><span>all again</span></li></ol><div class="rowlabel">With Transpo</div><ol class="flow "><li class="s"><b>Register on the phone</b><span>or with help at the hub</span></li><li class="s"><b>Photos of ID and licence</b><span>checked for blur</span></li><li class="g"><b>Consent</b><span>biometrics, required by law</span></li><li class="a"><b>Check within 4 h</b><span>dispatcher approves or says why not</span></li><li class="h"><b>One office visit</b><span>fingerprint only</span></li><li class="x"><b>First shift</b><span>the record follows him to any fleet</span></li></ol><div class="branch"><span>Rejected: the reason is shown, he can apply again</span><span>No consent: registration stops, the law requires it</span></div></div><div class="fl"><h3>2. Taking a car</h3><p class="sub">No office, no keys. Two steps of access: the door from the app, the engine by finger.</p><ol class="flow "><li class="s"><b>Nearest car park</b><span>free cars of the fleet on a map</span></li><li class="s"><b>Book</b><span>held 10 to 15 min, one extension</span></li><li class="s"><b>Walk to the car</b><span>earlier damage shown in photos</span></li><li class="g"><b>Own debt only?</b><span>a co-driver’s debt never blocks</span></li><li class="s"><b>Door opens</b><span>from the app, Bluetooth, works offline</span></li><li class="x"><b>Finger starts the engine</b><span>the shift begins</span></li></ol><div class="branch"><span>Finger not recognised: a code from the dispatcher, free</span><span>No network: the door opens by Bluetooth</span><span>Booking runs out: back to the map</span></div></div><div class="fl"><h3>3. Handover between co-drivers</h3><p class="sub">Two drivers share one car, day and night. The handover becomes a record instead of an argument.</p><ol class="flow "><li class="s"><b>End of shift</b><span>driver A</span></li><li class="s"><b>Fuel, cleanliness, new scratches</b><span>with a photo</span></li><li class="s"><b>Driver B checks it</b><span>in his own app</span></li><li class="g"><b>Both agree?</b></li><li class="s"><b>Both fingers</b><span>A hands over, B takes</span></li><li class="x"><b>B’s shift</b><span>rent on B</span></li></ol><div class="branch"><span>They disagree about a scratch: the dispatcher arbitrates, with the photos</span><span>Driver A restarts within 60 s: same shift, no new check</span></div></div><div class="fl"><h3>4. A fine finds the right driver</h3><p class="sub">The record from flow 2 answers a fine two weeks later.</p><ol class="flow "><li class="a"><b>Camera fine arrives</b><span>up to 15 days later</span></li><li class="a"><b>Matched to the shift</b><span>by car and time</span></li><li class="a"><b>Who started it</b><span>the finger at the engine</span></li><li class="h"><b>The fleet names him</b><span>one click, art. 16</span></li><li class="a"><b>He hears it</b><span>the same day, plain words</span></li><li class="h"><b>Next handover</b><span>the fleet decides</span></li></ol><div class="branch"><span>No shift at that time: the fleet pays (art. 17)</span><span>Document fines (insurance, inspection) always stay with the owner</span></div></div></div></details>
+</div></section>
+<section class="in sec " id="s5"><div class="rail"><span class="nr">05</span><span class="ey">Architecture</span></div><div class="body"><h2>Three surfaces, one record</h2><p class="intro">Each role gets the surface that fits its day. Underneath, every fact is written once and read by everyone, and every number opens down to its source.</p><div class="arch"><div class="surf d"><div class="hd"><b>Driver app</b><span>phone, light theme, voice first</span></div><ul><li>Today<span>one sentence: what to do now</span></li><li>Find a car</li><li>Unlock and start</li><li>Money<span>rent status, fines; no payments in the app</span></li><li>Profile</li><li>Help<span>call or speak to a person</span></li></ul></div><div class="surf"><div class="hd"><b>Fleet console</b><span>desktop, owner and dispatcher</span></div><ul><li>Overview<span>where the money stands still</span></li><li>Map</li><li>Cars</li><li>Drivers</li><li>Shifts<span>cars by the hour</span></li><li>Decisions<span>the system proposes, a person confirms</span></li><li>Fines</li><li>Money</li><li>Settings<span>team, roles, sub-dispatchers</span></li></ul></div><div class="surf g"><div class="hd"><b>Garage mode</b><span>phone, a role inside the console</span></div><ul><li>Service queue</li><li>Handover check<span>damage marked on a car diagram, with photos</span></li><li>Car QR</li></ul></div></div><div class="data"><b>Written once, read by all</b><span>Car passport: condition, assignment, money</span><span>Driver file</span><span>Rental day</span><span>Fine</span></div><table class="roles"><thead><tr><th>Role</th><th>Decides</th><th>Does not see</th></tr></thead><tbody><tr><td><b>Driver</b></td><td>Which car, when to pay, when to call a person</td><td>Other drivers, the fleet’s money, anyone else’s debt</td></tr><tr><td><b>Owner</b></td><td>Writing off debt, team and roles, car parks</td><td>The daily floor work</td></tr><tr><td><b>Dispatcher</b></td><td>Hand over or hold a car with an unpaid fine, name a driver, admit a new checked driver</td><td>Writing off debt</td></tr><tr><td><b>Mechanic</b></td><td>Fit to drive, or stays in service, with photos</td><td>Money, driver files</td></tr></tbody></table></div></section>
+<section class="in sec sechead" id="s6"><div class="rail"><span class="nr">06</span><span class="ey">Screens</span></div><div class="body">
+<h2>Driver screens, built in layers</h2>
+<p class="intro">Wireframes to test the flows, not final UI. Scroll: each step adds one layer, from who the screens are for to the parts they are made of.</p>
+</div></section>
+<div class="lx" id="ly-layers" style="--n:7" aria-label="Transpo driver app, built in layers">
+<div class="lx-pin" id="lx-pin"><div class="in lx-g">
+ <aside class="lx-side">
+  <p class="lx-count" id="lx-count">01 / 07</p>
+  <ol class="lx-legend" id="lx-legend"><li><button type="button"><i>01</i>Context</button></li><li><button type="button"><i>02</i>Flow</button></li><li><button type="button"><i>03</i>Wireframes</button></li><li><button type="button"><i>04</i>Black and white</button></li><li><button type="button"><i>05</i>Brand violet</button></li><li><button type="button"><i>06</i>Dark violet</button></li><li><button type="button"><i>07</i>Components</button></li></ol>
+  <div class="lx-ctrl"><button type="button" id="lx-prev" aria-label="Previous layer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button><button type="button" id="lx-next" aria-label="Next layer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></button></div>
+  <p class="lx-hint" id="lx-hint">Scroll to add a layer</p>
+  <a class="lx-skip" href="#s7">Skip the layers ↓</a>
+ </aside>
+ <div class="lx-main">
+  <div class="lx-texts"><div class="lx-t cur"><p class="lx-k">Context</p><h3>For drivers who read little</h3><p class="lx-p">Many fleet drivers read little and work on cheap phones in strong sun. So every screen speaks: Listen reads it aloud, including which button to press.</p></div><div class="lx-t"><p class="lx-k">Layer 1, the flow</p><h3>Two steps, no office</h3><p class="lx-p">Find and book a car, then open it with a finger. The dispatcher sees the shift start in the fleet console.</p></div><div class="lx-t"><p class="lx-k">Layer 2, wireframes</p><h3>One big action per screen</h3><p class="lx-p">Low-fi frames fix the order: Listen on top, the map, the nearest fleet, one button in reach of the thumb.</p></div><div class="lx-t"><p class="lx-k">Layer 3, colour test</p><h3>Black and white first</h3><p class="lx-p">In direct sun a cheap screen loses most of its contrast. White on black holds 18:1.</p></div><div class="lx-t"><p class="lx-k">Layer 3, colour test</p><h3>Brand violet, too light outside</h3><p class="lx-p">White on the brand violet gives 5.7:1: fine indoors, washed out in direct sun.</p></div><div class="lx-t"><p class="lx-k">Layer 3, colour test</p><h3>A darker violet for the street</h3><p class="lx-p">White on #5b21b6 gives 9:1. Violet marks the voice and the nearest car park, black marks the action.</p></div><div class="lx-t"><p class="lx-k">Layer 4, components</p><h3>Built from a few parts</h3><p class="lx-p">A Listen bar, a car park marker, status chips and one big action repeat on every driver screen.</p></div></div>
+  <div class="lx-view" id="lx-view"><div class="ly-board" id="lx-board">
+    <p class="ly-tag ly-lay" data-on="1" style="left:220px">01 Find and book</p>
+    <p class="ly-tag ly-v ly-lay" data-on="1" style="left:520px">02 Unlock with a finger</p>
+
+    <div class="ly-phone ly-a ly-lay" data-on="1" style="left:220px">
+     <span class="ly-ph">Find a car</span>
+     <img data-on="2" src="layers-img/find_wf.webp" width="780" height="1619" alt="Wireframe: find a car">
+     <img data-on="3" src="layers-img/find_bw.webp" width="780" height="1688" alt="Find a car, black and white">
+     <img data-on="4" src="layers-img/find_6a.webp" width="780" height="1688" alt="Find a car, brand violet">
+     <img data-on="5" src="layers-img/find_6b.webp" width="780" height="1688" alt="Find a car, dark violet">
+    </div>
+    <svg class="ly-arrow ly-lay" data-on="1" width="28" height="18" viewBox="0 0 28 18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M0 9h25M18 2l7 7-7 7"/></svg>
+    <div class="ly-phone ly-b ly-lay" data-on="1" style="left:520px">
+     <span class="ly-ph">Your car</span>
+     <img data-on="2" src="layers-img/car_wf.webp" width="780" height="1619" alt="Wireframe: start the shift">
+     <img data-on="3" src="layers-img/car_bw.webp" width="780" height="1688" alt="Your car, black and white">
+     <img data-on="4" src="layers-img/car_6a.webp" width="780" height="1688" alt="Your car, brand violet">
+     <img data-on="5" src="layers-img/car_6b.webp" width="780" height="1688" alt="Your car, dark violet: unlock with a finger">
+    </div>
+    <div class="ly-disp ly-lay" data-on="1"><small>03 Fleet console, dispatcher sees</small><div><b>Car 40</b><span>On shift, Seydou K.</span></div></div>
+
+    <div class="ly-spec ly-lay" data-only="3"><div class="ly-sq" style="background:#16131d">Black</div><p class="ly-ratio">18:1</p><p class="ly-cap">White on black</p></div>
+    <div class="ly-spec ly-lay" data-only="4"><div class="ly-sq" style="background:#7c3aed">#7c3aed</div><p class="ly-ratio">5.7:1</p><p class="ly-cap">White on brand violet</p></div>
+    <div class="ly-spec ly-lay" data-only="5"><div class="ly-sq" style="background:#5b21b6">#5b21b6</div><p class="ly-ratio">9:1</p><p class="ly-cap">White on dark violet, chosen</p></div>
+
+    <div class="ly-cmp ly-k1 ly-lay" data-on="6"><div class="ly-listen"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zM16 8a5 5 0 0 1 0 8"/></svg>Listen bar</div><p class="ly-code">C.01</p></div>
+    <div class="ly-cmp ly-k2 ly-lay" data-on="6"><div class="ly-park"><i>P</i>Car park</div><p class="ly-code">C.02</p></div>
+    <div class="ly-cmp ly-k3 ly-lay" data-on="6"><div class="ly-chips"><span>3 cars</span><span>Yours</span></div><p class="ly-code">C.03 Status chips</p></div>
+    <div class="ly-cmp ly-k4 ly-lay" data-on="6"><div class="ly-action">Book</div><p class="ly-code">C.04 Primary action</p></div>
+
+    <div class="ly-ctx ly-lay" data-only="0">
+     <div class="ly-cards">
+      <div class="ly-card"><p class="ly-hd" style="margin:0 0 10px"><span>F.01</span><span>Reading</span></p><b>Many read little</b>Text is a barrier, so the screen speaks.</div>
+      <div class="ly-card"><p class="ly-hd" style="margin:0 0 10px"><span>F.02</span><span>Light</span></p><b>Strong sun</b>Cheap, scratched screens in direct light.</div>
+      <div class="ly-card"><p class="ly-hd" style="margin:0 0 10px"><span>F.03</span><span>Language</span></p><b>French and Dioula</b>Spoken every day, written rarely.</div>
+     </div>
+     <div class="ly-talk">
+      <div><p class="ly-hd" style="margin:0"><span class="ly-mk">1</span>Tap Listen</p><div class="ly-listen"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zM16 8a5 5 0 0 1 0 8"/></svg>Listen<svg class="ly-wave" width="56" height="20" viewBox="0 0 56 20" fill="#fff" aria-hidden="true"><rect x="0" y="7" width="4" height="6" rx="2"/><rect x="9" y="3" width="4" height="14" rx="2"/><rect x="18" y="6" width="4" height="8" rx="2"/><rect x="27" y="0" width="4" height="20" rx="2"/><rect x="36" y="4" width="4" height="12" rx="2"/><rect x="45" y="2" width="4" height="16" rx="2"/><rect x="52" y="7" width="4" height="6" rx="2"/></svg></div></div>
+      <div><p class="ly-hd" style="margin:0"><span class="ly-mk">2</span>It reads the screen aloud</p><p class="ly-said">&ldquo;Find a car. The Fleet A car park is 400 metres away, 5 minutes on foot. There are 3 free cars. To book, press the big black button at the bottom.&rdquo;</p></div>
+      <div><p class="ly-hd" style="margin:0"><span class="ly-mk">3</span>Press the one big button</p><div class="ly-action">Book</div></div>
+     </div>
+     <figure class="ly-say"><blockquote>&ldquo;Take the car, never get blocked.&rdquo;</blockquote><figcaption>Seydou, main driver of one car, shares it with a night driver. Proto-persona</figcaption></figure>
+    </div>
+   </div></div>
+ </div>
+</div></div></div>
+<section class="in sec" id="s7"><div class="rail"><span class="nr">07</span><span class="ey">Fleet side</span></div><div class="body"><h2>The same record, seen by the fleet</h2><p class="intro">The dispatcher works on a desktop console. Two everyday scenarios, on the shift record the driver screens create.</p><div class="scen"><div class="ftext"><h3>A fine, two weeks later</h3><p class="flead">A camera fine reaches the fleet up to 15 days after the ride. Today, if nobody can say who drove, the fleet pays.</p><ol class="fsteps"><li><span class="mk">1</span><p>Fines are sorted by days left to name the driver.</p></li><li><span class="mk">2</span><p>Transpo matches the fine to a shift: the booking, the finger at the engine, the car on the street.</p></li><li><span class="mk">3</span><p>The dispatcher names the driver in one click. He hears it in his app the same day.</p></li></ol><p class="fnote">No shift at that time: the dispatcher checks the car park, and the fleet pays only if nobody drove.</p></div><figure class="shot"><div class="frame"><img src="img/transpo/fines.webp" width="2000" height="1422" loading="lazy" decoding="async" alt="Fleet console, fines sorted by days left, with the matched driver and the reason"><span class="fpin" style="left:18.9%;top:30.2%">1</span><span class="fpin" style="left:69.7%;top:49%">2</span><span class="fpin" style="left:69.7%;top:77.2%">3</span></div><figcaption>Concept screen, sample data.</figcaption></figure></div><div class="scen"><div class="ftext"><h3>Who drives which car, right now</h3><p class="flead">14:20 on a Monday. A driver calls about a car; the dispatcher needs the answer without calling anyone back.</p><ol class="fsteps"><li><span class="mk">1</span><p>Every bar is a shift that began with a finger at the engine. The fine above reads this record.</p></li><li><span class="mk">2</span><p>A booked car shows the driver walking to it.</p></li><li><span class="mk">3</span><p>Idle cars and cars at the service stand out, so the dispatcher sees what earns nothing.</p></li></ol></div><figure class="shot"><div class="frame"><img src="img/transpo/shifts_clean.webp" width="2000" height="1422" loading="lazy" decoding="async" alt="Fleet console, shifts by the hour: cars in rows, drivers on shift, idle cars and cars at the service"><span class="fpin" style="left:34.4%;top:25.6%">1</span><span class="fpin" style="left:53.6%;top:43.2%">2</span><span class="fpin" style="left:62%;top:31.4%">3</span></div><figcaption>Concept screen, sample data.</figcaption></figure></div></div></section>
+<section class="st" id="story" style="--n:5" aria-label="One car, one record: a day of Transpo, driver and fleet">
+<div class="st-pin" id="st-pin">
+ <div class="st-head"><div><p class="st-ey">The product, one day</p><h2>One car, one record</h2></div>
+  <p class="st-sub">The same shift seen from both sides. Scroll: the day moves to the right.</p></div>
+ <div class="st-lanes" aria-hidden="true"><span class="st-ld">Driver, Seydou K.</span><span class="st-lf">Fleet A, dispatcher Kofi K.</span></div>
+ <div class="st-rec" aria-hidden="true"><span class="st-rec-t">Shift record</span><i class="st-rec-fill" id="st-fill"></i></div>
+ <div class="st-track" id="st-track"><div class="st-sc" data-i="0">
+  <p class="st-time">Mon 23 Nov, 06:50</p><p class="st-k">01 Joining</p>
+  <div class="st-d"><div class="st-ph st-ui"><p class="u-time">9:30</p><p class="u-t">Register</p><div class="u-listen"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zM16 8a5 5 0 0 1 0 8"/></svg>Listen<span class="u-w" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b></span></div><div class="u-row"><span>ID card</span><b class="ok">checked</b></div><div class="u-row"><span>Driving licence</span><b class="ok">checked</b></div><div class="u-row"><span>Consent</span><b class="ok">given</b></div><p class="u-note">Fleet A checks you within 4 hours.</p><div class="u-btn">OK</div></div><p class="st-line">Seydou registers on his phone. One visit to the office, only for the fingerprint.</p></div>
+  <div class="st-node"><i></i></div>
+  <div class="st-f"><div class="cc"><p class="cc-h">Needs you</p><div class="cc-r"><div><b>New driver: Seydou K.</b><span>checked: ID, licence, fingerprint</span></div><em class="lime">ready</em></div><div class="cc-btn">Admit Seydou K.</div></div><p class="st-line">The dispatcher admits a checked driver in one click. No paper, no second visit.</p></div>
+</div><div class="st-sc" data-i="1">
+  <p class="st-time">Mon 23 Nov, 07:05</p><p class="st-k">02 Finding a car</p>
+  <div class="st-d"><div class="st-ph"><img src="layers-img/find_6b.webp" width="780" height="1688" alt="Find a car: the nearest car park, one big Book button" loading="lazy"></div><p class="st-line">He books the nearest free car, 400 metres away. The screen reads itself aloud.</p></div>
+  <div class="st-node"><i></i></div>
+  <div class="st-f"><div class="cc"><p class="cc-h">Map, Fleet A</p><div class="cc-r"><div><b>Car 40, booked</b><span>Seydou K. walking, 5 min</span></div><em class="vio">booked</em></div><div class="cc-r"><div><b>Car 14</b><span>idle 26 h, Yopougon car park</span></div><em class="red">idle</em></div></div><p class="st-line">The fleet sees the car is taken before anyone calls.</p></div>
+</div><div class="st-sc" data-i="2">
+  <p class="st-time">Mon 23 Nov, 07:12</p><p class="st-k">03 Unlocking</p>
+  <div class="st-d"><div class="st-ph"><img src="layers-img/car_6b.webp" width="780" height="1688" alt="Your car: Car 40 and a round fingerprint button to unlock" loading="lazy"></div><p class="st-line">The door opens from the app. His finger on the button starts the engine.</p></div>
+  <div class="st-node"><i></i></div>
+  <div class="st-f"><div class="cc"><p class="cc-h">Shifts, today</p><div class="cc-bar"><span class="cc-car">Car 40</span><span class="cc-line"><i></i>Seydou K., first shift</span></div><p class="cc-s">started 07:12 by fingerprint</p></div><p class="st-line">The shift record writes itself: car, driver, time. Nobody hands over keys.</p></div>
+</div><div class="st-sc" data-i="3">
+  <p class="st-time">Mon 23 Nov, 19:04</p><p class="st-k">04 Handing over</p>
+  <div class="st-d"><div class="st-ph st-ui"><p class="u-time">9:30</p><p class="u-t">Hand over Car 40</p><div class="u-listen"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zM16 8a5 5 0 0 1 0 8"/></svg>Listen<span class="u-w" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b></span></div><div class="u-row"><span>Fuel</span><b class="ok">3/4</b></div><div class="u-row"><span>New scratches</span><b class="ok">1 photo</b></div><div class="u-row"><span>Ibrahim T.</span><b class="ok">checked</b></div><div class="u-btn">Confirm with finger</div></div><p class="st-line">At the end of the day he hands the car to his night co-driver. Both confirm with a finger.</p></div>
+  <div class="st-node"><i></i></div>
+  <div class="st-f"><div class="cc"><p class="cc-h">Handover recorded</p><div class="cc-r"><div><b>Car 40: Seydou K. → Ibrahim T.</b><span>19:04, both fingers, rent on Ibrahim</span></div><em class="lime">done</em></div></div><p class="st-line">No call to the dispatcher. The argument about fuel and scratches becomes a record.</p></div>
+</div><div class="st-sc" data-i="4">
+  <p class="st-time">Mon 7 Dec, 09:10</p><p class="st-k">05 Two weeks later</p>
+  <div class="st-d"><div class="st-ph st-ui"><p class="u-time">9:30</p><p class="u-t">Fines</p><div class="u-listen"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zM16 8a5 5 0 0 1 0 8"/></svg>Listen<span class="u-w" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b></span></div><div class="u-card"><b>Speed camera, Car 40</b><span>23 Nov, 11:42, Bd Latrille</span><span>You were driving.</span></div><p class="u-note">The fleet decides before your next shift.</p><div class="u-btn">Listen again</div></div><p class="st-line">He hears it the same day, in plain words, not in a letter weeks later.</p></div>
+  <div class="st-node"><i></i></div>
+  <div class="st-f"><div class="cc"><p class="cc-h">Fines</p><div class="cc-r"><div><b>Speed camera, Car 40</b><span>23 Nov 11:42, matched: Seydou K., shift 07:12 to 19:04</span></div><em class="red">2 days</em></div><div class="cc-btn">Name Seydou K.</div></div><p class="st-line">A camera fine arrives. The record already knows who drove; the fleet names him in one click.</p></div>
+</div></div>
+ <p class="st-foot">Concept screens, sample data.</p>
+</div></section><section class="in sec keep" id="s8"><div class="rail"><span class="nr">08</span><span class="ey">Next, in the field</span></div><div class="body">
+<h2>Check the people, then check the screens</h2>
+<p class="intro">This is the first stage. The proto-personas and the screens go to Abidjan together: first we confirm who the drivers are, then we watch whether the screens work for them.</p>
+<div class="tracks">
+    <div class="track">
+      <h3>1. Turn proto-personas into personas</h3>
+      <p class="sub">Interviews with drivers in each segment and with 3 to 5 fleets</p>
+      <ol>
+        <li><div>How well drivers read, and which languages they speak at work<span>decides how much the voice has to carry</span></div></li>
+        <li><div>How a car changes hands today, step by step<span>the moment the product is built around</span></div></li>
+        <li><div>Prayer, Ramadan and the rhythm of a shift<span>open in the studies</span></div></li>
+        <li><div>Which proto-persona is real, which merges, which is missing<span>six drivers is a draft count</span></div></li>
+      </ol>
+    </div>
+    <div class="track">
+      <h3>2. Test the screens with those drivers</h3>
+      <p class="sub">Clickable frames on a cheap phone, outdoors, in the drivers’ own words</p>
+      <ol>
+        <li><div>Can a driver book and unlock with Listen alone, without reading?<span>the core claim of the design</span></div></li>
+        <li><div>Is the dark violet readable at midday on a scratched screen?<span>the colour test above, checked in the street</span></div></li>
+        <li><div>Is one big action enough, or do drivers look for more?<span>task success and hesitation</span></div></li>
+        <li><div>Does the voice sound like help, or like an order?<span>tone and language of the script</span></div></li>
+      </ol>
+    </div>
+  </div>
+<div class="three" style="margin-top:40px"><div><b>Research the handover, not the app</b>The pain sits in the moment a car changes hands. The app is only the way to record it.</div><div><b>Fairness rules are product rules</b>Who can be blocked, when and for whose debt decided more of the design than any layout.</div><div><b>A simulation is a draft, not evidence</b>It finds gaps in our own logic fast. Every finding stays a hypothesis until a real driver says it.</div></div>
+</div></section>
+</main>
+<footer><div class="in">Case by Irina Mumrikova. Transpo is a start-up in the founding phase; the product is not built yet. Screens show invented data. Financial figures of the company are not shown.</div></footer><div class="in"><div class="endbar"></div></div>
+<script>
+(() => {
+  const KURZ = /(^|[\s(“])(a|an|the|of|to|in|on|at|by|for|and|or|but|nor|with|from|as|is|are|was|it|its|I|no|not|one|into|per|so|if|be|do|my|up|than|he|his|him|you|we|our|via|\d[\d,.:]*)[^\S ]+(?=\S)/gi;
+  for (const root of document.querySelectorAll('.lx-texts,.ly-ctx')) {
+    const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    for (let n; (n = w.nextNode());) if (n.nodeValue.trim()) { let v = n.nodeValue, p; do { p = v; v = v.replace(KURZ, (m, s1, x) => s1 + x + ' '); } while (v !== p); n.nodeValue = v; }
+  }
+  const N = 7, sec = document.getElementById('ly-layers'), pin = document.getElementById('lx-pin');
+  const view = document.getElementById('lx-view'), board = document.getElementById('lx-board');
+  const texts = [...document.querySelectorAll('.lx-t')], rows = [...document.querySelectorAll('#lx-legend li')];
+  const ons = [...board.querySelectorAll('[data-on]')], onlys = [...board.querySelectorAll('[data-only]')];
+  const count = document.getElementById('lx-count'), hint = document.getElementById('lx-hint');
+  const prev = document.getElementById('lx-prev'), next = document.getElementById('lx-next');
+  const hdr = document.querySelector('.cs-top');
+  const hh = () => sec.style.setProperty('--hh', (hdr ? hdr.offsetHeight : 0) + 'px');
+  let cur = -1;
+  const range = () => sec.offsetHeight - pin.offsetHeight;
+  const posOf = i => sec.getBoundingClientRect().top + scrollY - (hdr ? hdr.offsetHeight : 0) + range() * (i + .5) / N;
+  const go = i => { i = Math.max(0, Math.min(N - 1, i)); scrollTo({ top: posOf(i), behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); };
+  prev.onclick = () => go(cur - 1); next.onclick = () => go(cur + 1);
+  rows.forEach((r, k) => r.querySelector('button').onclick = () => go(k));
+  function set(i) {
+    if (i === cur) return; cur = i;
+    texts.forEach((t, k) => t.classList.toggle('cur', k === i));
+    rows.forEach((r, k) => { r.classList.toggle('cur', k === i); r.classList.toggle('done', k < i); });
+    ons.forEach(el => el.classList.toggle('on', i >= +el.dataset.on));
+    onlys.forEach(el => el.classList.toggle('on', i === +el.dataset.only));
+    count.textContent = String(i + 1).padStart(2, '0') + ' / 07';
+    hint.style.visibility = i === N - 1 ? 'hidden' : 'visible';
+    prev.disabled = i === 0; next.disabled = i === N - 1;
+  }
+  let tick = false;
+  function onScroll() { tick = false; const top = sec.getBoundingClientRect().top - (hdr ? hdr.offsetHeight : 0);
+    set(Math.max(0, Math.min(N - 1, Math.floor((-top) / Math.max(1, range()) * N)))); }
+  addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  function fit() { hh(); const narrow = view.clientWidth < 640, bw = narrow ? 600 : 1000;
+    board.style.setProperty('--s', Math.max(.28, Math.min(1, view.clientWidth / (bw + 20), view.clientHeight / 730))); }
+  addEventListener('resize', fit); fit(); onScroll(); set(Math.max(cur, 0));
+})();
+</script>
+<script>
+(() => {
+  const sec = document.getElementById('story'), pin = document.getElementById('st-pin'), track = document.getElementById('st-track');
+  const scs = [...track.querySelectorAll('.st-sc')];
+  const hdr = document.querySelector('.cs-top');
+  let tick = false;
+  function upd() {
+    tick = false;
+    const hh = hdr ? hdr.offsetHeight : 0;
+    sec.style.setProperty('--hh', hh + 'px');
+    const range = sec.offsetHeight - pin.offsetHeight;
+    const p = Math.max(0, Math.min(1, (hh - sec.getBoundingClientRect().top) / Math.max(1, range)));
+    const max = Math.max(0, track.scrollWidth - pin.clientWidth);
+    track.style.transform = `translate3d(${-p * max}px,0,0)`;
+    
+    const mid = pin.clientWidth * .55;
+    scs.forEach(s => { const r = s.getBoundingClientRect(); s.classList.toggle('on', r.left < mid); s.classList.toggle('now', r.left < mid && r.right > mid * .6); });
+  }
+  addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(upd); } }, { passive: true });
+  addEventListener('resize', upd); upd();
+})();
+</script></body>
+</html>
